@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export type Props = {
   suit: string;
@@ -8,10 +8,18 @@ export type Props = {
 
 const Card: React.FC<Props> = ({ suit, rank }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{rank} {suit}</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default Card;
