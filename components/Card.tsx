@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+
+const cardWidth = Dimensions.get('window').width * 6 / 15;
+const cardHeight = cardWidth * 3.5 / 2.5
 
 export type Props = {
   suit: string;
@@ -19,6 +22,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    width: cardWidth,
+    height: cardHeight,
+    borderRadius: 10
   },
 });
 
