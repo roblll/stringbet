@@ -13,3 +13,5 @@ const Card: React.FC<Props> = ({ suit, rank }) => {
     </View>
   )
 }
+
+export default Card;
