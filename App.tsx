@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Card suit='hearts' rank={1} />
+      <Card rank='A' suit='S' />
     </View>
   );
 }

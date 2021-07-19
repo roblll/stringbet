@@ -5,8 +5,8 @@ const cardWidth = Dimensions.get('window').width * 6 / 15;
 const cardHeight = cardWidth * 1056 / 691;
 
 export type Props = {
+  rank: string;
   suit: string;
-  rank: number;
 }
 
 const styles = StyleSheet.create({
@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const Card: React.FC<Props> = ({ suit, rank }) => {
+const Card: React.FC<Props> = ({ rank, suit }) => {
   return (
     <View style={styles.container}>
       <Image
         style={styles.cardStyle}
-        source={require('../assets/card-images/AC.png')}
+        source={require('../assets/card-images/AS.png')}
       />
     </View>
   )
