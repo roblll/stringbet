@@ -154,19 +154,19 @@ const cardImages = {
   />,
   'TC': <Image
     style={styles.cardStyle}
-    source={require('../assets/card-images/10C.png')}
+    source={require('../assets/card-images/TC.png')}
   />,
   'TD': <Image
     style={styles.cardStyle}
-    source={require('../assets/card-images/10D.png')}
+    source={require('../assets/card-images/TD.png')}
   />,
   'TH': <Image
     style={styles.cardStyle}
-    source={require('../assets/card-images/10H.png')}
+    source={require('../assets/card-images/TH.png')}
   />,
   'TS': <Image
     style={styles.cardStyle}
-    source={require('../assets/card-images/10S.png')}
+    source={require('../assets/card-images/TS.png')}
   />,
   'JC': <Image
     style={styles.cardStyle}
