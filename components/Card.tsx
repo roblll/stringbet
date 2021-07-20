@@ -4,12 +4,11 @@ import { View, StyleSheet, Dimensions, Image } from 'react-native';
 const cardWidth = Dimensions.get('window').width * 6 / 15;
 const cardHeight = cardWidth * 1056 / 691;
 
-export type Props = {
-  rank: '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | 'J' | 'Q' | 'K' | 'A';
-  suit: 'C' | 'D' | 'H' | 'S';
-}
+type rankSuitType = '2C' | '2D' | '2H' | '2S' | '3C' | '3D' | '3H' | '3S' | '4C' | '4D' | '4H' | '4S' | '5C' | '5D' | '5H' | '5S' | '6C' | '6D' | '6H' | '6S' | '7C' | '7D' | '7H' | '7S' | '8C' | '8D' | '8H' | '8S' | '9C' | '9D' | '9H' | '9S' | 'TC' | 'TD' | 'TH' | 'TS' | 'JC' | 'JD' | 'JH' | 'JS' | 'QC' | 'QD' | 'QH' | 'QS' | 'KC' | 'KD' | 'KH' | 'KS' | 'AC' | 'AD' | 'AH' | 'AS'
 
-type rankSuitType = '2C' | '2D' | '2H' | '2S' | '3C' | '3D' | '3H' | '3S' | '4C' | '4D' | '4H' | '4S' | '5C' | '5D' | '5H' | '5S' | '6C' | '6D' | '6H' | '6S' | '7C' | '7D' | '7H' | '7S' | '8C' | '8D' | '8H' | '8S' | '9C' | '9D' | '9H' | '9S' | '10C' | '10D' | '10H' | '10S' | 'JC' | 'JD' | 'JH' | 'JS' | 'QC' | 'QD' | 'QH' | 'QS' | 'KC' | 'KD' | 'KH' | 'KS' | 'AC' | 'AD' | 'AH' | 'AS'
+export type Props = {
+  id: rankSuitType;
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -153,19 +152,19 @@ const cardImages = {
     style={styles.cardStyle}
     source={require('../assets/card-images/9S.png')}
   />,
-  '10C': <Image
+  'TC': <Image
     style={styles.cardStyle}
     source={require('../assets/card-images/10C.png')}
   />,
-  '10D': <Image
+  'TD': <Image
     style={styles.cardStyle}
     source={require('../assets/card-images/10D.png')}
   />,
-  '10H': <Image
+  'TH': <Image
     style={styles.cardStyle}
     source={require('../assets/card-images/10H.png')}
   />,
-  '10S': <Image
+  'TS': <Image
     style={styles.cardStyle}
     source={require('../assets/card-images/10S.png')}
   />,
@@ -235,11 +234,10 @@ const cardImages = {
   />
 }
 
-const Card: React.FC<Props> = ({ rank, suit }) => {
-  const rankSuit: rankSuitType = `${rank}${suit}`
+const Card: React.FC<Props> = ({ id }) => {
   return (
     <View style={styles.container}>
-      {cardImages[rankSuit]}
+      {cardImages[id]}
     </View>
   )
 }

@@ -10,8 +10,8 @@ export default function App() {
       <StatusBar style="auto" />
       <View style={styles.headerContainer}></View>
       <View style={styles.cardsContainer}>
-        <Card rank='A' suit='S' />
-        <Card rank='A' suit='D' />
+        <Card id='AS' />
+        <Card id='AC' />
       </View>
       <View style={styles.controlsContainer}></View>
     </View>
