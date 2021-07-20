@@ -1,17 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Card from './components/Card'
+import Card, { rankSuitType } from './components/Card'
+
+interface IAppData {
+  card1: rankSuitType;
+  card2: rankSuitType;
+}
 
 export default function App() {
+  const [allValues, setAllValues] = useState<IAppData>({
+    card1: 'AS',
+    card2: 'AC',
+  })
+
+  const { card1, card2 } = allValues;
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.headerContainer}></View>
       <View style={styles.cardsContainer}>
-        <Card id='AS' />
-        <Card id='AC' />
+        <Card id={card1} />
+        <Card id={card2} />
       </View>
       <View style={styles.controlsContainer}></View>
     </View>
