@@ -1,3 +1,5 @@
+import { rankSuitType } from '../components/Card'
+
 export const rankings = {
   'AA': [1, 1 / 169],
   'KK': [2, 2 / 169],
@@ -170,7 +172,7 @@ export const rankings = {
   '72o': [169, 169 / 169],
 }
 
-export const deck = [
+export const deck: rankSuitType[] = [
   '2C', '2D', '2H', '2S', '3C', '3D', '3H', '3S', '4C', '4D', '4H', '4S', '5C', '5D', '5H', '5S', '6C', '6D', '6H', '6S', '7C', '7D', '7H', '7S', '8C', '8D', '8H', '8S', '9C', '9D', '9H', '9S', 'TC', 'TD', 'TH', 'TS', 'JC', 'JD', 'JH', 'JS', 'QC', 'QD', 'QH', 'QS', 'KC', 'KD', 'KH', 'KS', 'AC', 'AD', 'AH', 'AS',
 ]
 
@@ -181,11 +183,11 @@ export const getRandomInt = (min: number, max: number) => {
 }
 
 export const getRandomHand = () => {
-  let card1 = getRandomInt(0, 51);
-  let card2 = getRandomInt(0, 51);
+  let card1 = deck[getRandomInt(0, 51)];
+  let card2 = deck[getRandomInt(0, 51)];
   while (card1 === card2) {
-    card1 = getRandomInt(0, 51);
-    card2 = getRandomInt(0, 51);
+    card1 = deck[getRandomInt(0, 51)];
+    card2 = deck[getRandomInt(0, 51)];
   }
   return { card1, card2 };
 }

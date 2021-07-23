@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 
 import Card, { rankSuitType } from './components/Card';
+
+import { getRandomHand } from "./utils/utils"
 
 interface IAppData {
   card1: rankSuitType;
@@ -10,12 +12,15 @@ interface IAppData {
 }
 
 export default function App() {
-  const [allValues, setAllValues] = useState<IAppData>({
-    card1: 'AS',
-    card2: 'AC',
+  const [state, setState] = useState<IAppData>(() => {
+    const { card1, card2 } = getRandomHand()
+    return ({
+      card1,
+      card2
+    })
   })
 
-  const { card1, card2 } = allValues;
+  const { card1, card2 } = state;
 
   return (
     <View style={styles.container}>
