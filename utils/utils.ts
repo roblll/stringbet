@@ -179,3 +179,13 @@ export const getRandomInt = (min: number, max: number) => {
   max = Math.floor(max) + 1;
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+export const getRandomHand = () => {
+  let card1 = getRandomInt(0, 51);
+  let card2 = getRandomInt(0, 51);
+  while (card1 === card2) {
+    card1 = getRandomInt(0, 51);
+    card2 = getRandomInt(0, 51);
+  }
+  return { card1, card2 };
+}
