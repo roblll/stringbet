@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 
 import Card, { rankSuitType } from './components/Card';
+import ScrollPicker from './components/ScrollPicker';
 
 import { getRandomHand } from "./utils/utils"
 
@@ -30,7 +31,9 @@ export default function App() {
         <Card id={card1} />
         <Card id={card2} />
       </View>
-      <View style={styles.controlsContainer}></View>
+      <View style={styles.controlsContainer}>
+        <ScrollPicker />
+      </View>
     </View>
   );
 }
