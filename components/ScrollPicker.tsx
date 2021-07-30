@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Platform, ScrollView } from 'react-native';
+import { View, Platform, ScrollView } from 'react-native';
 
 import PickerItem from './PickerItem';
 
@@ -26,7 +26,7 @@ const ScrollPicker: React.FC<Props> = ({
   }
 
   return (
-    <View style={[styles.container, { height, width }]}>
+    <View style={{ height, width }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
@@ -43,16 +43,26 @@ const ScrollPicker: React.FC<Props> = ({
         <PickerItem label='9' style={{ height: itemHeight}} />
         <PickerItem label='10' style={{ height: itemHeight}} />
       </ScrollView>
+      <View
+        style={{
+          position: 'absolute',
+          width: '100%',
+          top: 0,
+          borderBottomWidth: 1,
+          height: transparentItemRows * itemHeight,
+        }}
+        pointerEvents="none" />
+      <View
+          style={{
+            position: 'absolute',
+            width: '100%',
+            bottom: 0,
+            borderTopWidth: 1,
+            height: transparentItemRows * itemHeight,
+          }}
+          pointerEvents="none" />
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default ScrollPicker;

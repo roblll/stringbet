@@ -10,7 +10,11 @@ export type Props = {
 
 const PickerItem: React.FC<Props> = ({ label, style }) => {
   return (
-    <View style={{ height: style.height}}>
+    <View style={{ 
+      height: style.height, 
+      alignItems: 'center', 
+      justifyContent: 'center',
+    }}>
       <Text>
         {label}
       </Text>
