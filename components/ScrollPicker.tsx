@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions, Text, Platform } from 'react-native';
 
 const width = Dimensions.get('window').width;
@@ -20,6 +20,7 @@ const ScrollPicker: React.FC<Props> = ({
   width = 300, 
   transparentItemRows = 3 
 }) => {
+  const [itemIndex, setItemIndex] = useState(0)
   let itemHeight = height / (transparentItemRows * 2 + 1);
   if (Platform.OS === 'ios') {
     itemHeight = Math.ceil(itemHeight);
