@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Dimensions, Text, Platform } from 'react-native';
+import { View, StyleSheet, Dimensions, Text, Platform, ScrollView } from 'react-native';
 
 const width = Dimensions.get('window').width;
 const height = width;
@@ -28,7 +28,34 @@ const ScrollPicker: React.FC<Props> = ({
 
   return (
     <View style={styles.container}>
-      <Text>ScrollPicker</Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        snapToInterval={itemHeight}
+      >
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+        <Text>ScrollPicker</Text>
+      </ScrollView>
     </View>
   )
 }
