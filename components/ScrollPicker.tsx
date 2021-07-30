@@ -9,7 +9,12 @@ for (let i = 1; i <= 169; i++) {
   data.push(i)
 }
 
-const ScrollPicker = () => {
+export type Props = {
+  height: number,
+  width: number,
+}
+
+const ScrollPicker: React.FC<Props> = ({ height = 300, width = 300 }) => {
   return (
     <View style={styles.container}>
       <Text>ScrollPicker</Text>
