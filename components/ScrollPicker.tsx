@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Dimensions, Text, Platform, ScrollView } from 'react-native';
+import { View, StyleSheet, Platform, ScrollView } from 'react-native';
 
-const width = Dimensions.get('window').width;
-const height = width;
+import PickerItem from './PickerItem';
 
 const data: number[] = []
 for (let i = 1; i <= 169; i++) {
@@ -12,13 +11,13 @@ for (let i = 1; i <= 169; i++) {
 export type Props = {
   height?: number,
   width?: number,
-  transparentItemRows?: number
+  transparentItemRows?: number,
 }
 
 const ScrollPicker: React.FC<Props> = ({ 
   height = 300, 
   width = 300, 
-  transparentItemRows = 3 
+  transparentItemRows = 3,
 }) => {
   const [itemIndex, setItemIndex] = useState(0)
   let itemHeight = height / (transparentItemRows * 2 + 1);
@@ -27,34 +26,13 @@ const ScrollPicker: React.FC<Props> = ({
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { height, width }]}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         snapToInterval={itemHeight}
       >
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
-        <Text>ScrollPicker</Text>
+        <PickerItem label='1' />
       </ScrollView>
     </View>
   )
@@ -65,8 +43,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: width,
-    height: height,
   },
 });
 
