@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 
 import Card, { rankSuitType } from './components/Card';
-import ScrollPicker from './components/ScrollPicker';
+import ScrollPicker, { dataType } from './components/ScrollPicker';
 
 import { getRandomHand } from "./utils/utils"
 
-const data: string[] = []
+const data: dataType[] = []
 for (let i = 1; i <= 169; i++) {
-  data.push(String(i))
+  data.push({value: i, label: String(i)})
 }
 
 interface IAppData {

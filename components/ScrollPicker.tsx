@@ -3,11 +3,16 @@ import { View, Platform, ScrollView } from 'react-native';
 
 import PickerItem from './PickerItem';
 
+export type dataType = {
+  value: number;
+  label: string;
+}
+
 export type Props = {
   height?: number;
   width?: number;
   transparentItemRows?: number;
-  data: string[];
+  data: dataType[];
 }
 
 const ScrollPicker: React.FC<Props> = ({ 
@@ -22,6 +27,25 @@ const ScrollPicker: React.FC<Props> = ({
     itemHeight = Math.ceil(itemHeight);
   }
 
+  const fakeItems = (n = 3) => {
+    const itemsArr = [];
+    for (let i = 0; i < n; i++) {
+      itemsArr[i] = {
+        value: -1,
+        label: '',
+      };
+    }
+    return itemsArr;
+  }
+
+  const extendedItems = () => {
+    return [
+      ...fakeItems(transparentItemRows),
+      ...data,
+      ...fakeItems(transparentItemRows),
+    ];
+  }
+
   return (
     <View style={{ height, width }}>
       <ScrollView
@@ -29,8 +53,8 @@ const ScrollPicker: React.FC<Props> = ({
         showsHorizontalScrollIndicator={false}
         snapToInterval={itemHeight}
       >
-        {data.map(d => {
-          return <PickerItem id={d} label={d} style={{ height: itemHeight}} />  
+        {extendedItems().map((item, index) => {
+          return <PickerItem key={index} label={item.label} style={{ height: itemHeight}} />  
         })}
       </ScrollView>
       <View
