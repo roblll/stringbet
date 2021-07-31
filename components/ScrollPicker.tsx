@@ -73,6 +73,8 @@ const ScrollPicker: React.FC<Props> = ({
         showsHorizontalScrollIndicator={false}
         snapToInterval={itemHeight}
         scrollEventThrottle={0}
+        overScrollMode={"never"}
+        bounces={false}
         onMomentumScrollBegin={(event) => {
           onMomentumScrollBegin();
         }}
