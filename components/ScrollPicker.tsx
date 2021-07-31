@@ -46,12 +46,48 @@ const ScrollPicker: React.FC<Props> = ({
     ];
   }
 
+  const onScroll = () => {
+    console.log('onScroll')
+  }
+
+  const onMomentumScrollBegin = () => {
+    console.log('onMomentumScrollBegin')
+  }
+
+  const onMomentumScrollEnd = () => {
+    console.log('onMomentumScrollEnd')
+  }
+
+  const onScrollBeginDrag = () => {
+    console.log('onScrollBeginDrag')
+  }
+
+  const onScrollEndDrag = () => {
+    console.log('onScrollEndDrag')
+  }
+
   return (
     <View style={{ height, width }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         snapToInterval={itemHeight}
+        scrollEventThrottle={0}
+        onMomentumScrollBegin={(event) => {
+          onMomentumScrollBegin();
+        }}
+        onMomentumScrollEnd={(event) => {
+          onMomentumScrollEnd();
+        }}
+        onScrollBeginDrag={(event) => {
+          onScrollBeginDrag();
+        }}
+        onScrollEndDrag={(event) => {
+          onScrollEndDrag();
+        }}
+        onScroll={(event) => {
+          onScroll();
+        }}
       >
         {extendedItems().map((item, index) => {
           return <PickerItem key={index} label={item.label} style={{ height: itemHeight}} />  
