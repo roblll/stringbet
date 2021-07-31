@@ -7,6 +7,11 @@ import ScrollPicker from './components/ScrollPicker';
 
 import { getRandomHand } from "./utils/utils"
 
+const data: string[] = []
+for (let i = 1; i <= 169; i++) {
+  data.push(String(i))
+}
+
 interface IAppData {
   card1: rankSuitType;
   card2: rankSuitType;
@@ -32,7 +37,7 @@ export default function App() {
         <Card id={card2} />
       </View>
       <View style={styles.controlsContainer}>
-        <ScrollPicker />
+        <ScrollPicker data={data} />
       </View>
     </View>
   );

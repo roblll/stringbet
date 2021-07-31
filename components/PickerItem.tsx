@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 export type Props = {
+  id: string;
   label: string;
   style: {
     height: number
