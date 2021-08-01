@@ -17,14 +17,18 @@ for (let i = 1; i <= 169; i++) {
 interface IAppData {
   card1: rankSuitType;
   card2: rankSuitType;
+  handRank: number;
+  handPercentage: number;
 }
 
-export default function App() {
+const App = () => {
   const [state, setState] = useState<IAppData>(() => {
     const { card1, card2 } = getRandomHand()
     return ({
       card1,
-      card2
+      card2,
+      handRank: 0,
+      handPercentage: 99,
     })
   })
 
@@ -68,3 +72,5 @@ const styles = StyleSheet.create({
     width: '100%',
   }
 });
+
+export default App;
