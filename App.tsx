@@ -40,6 +40,12 @@ const App = () => {
     setState({ ...state, handPercentage })
   }
 
+  const checkAnswer = () => {
+    const { card1, card2, handRank, handPercentage } = state;
+    // hand = convertCardsToHand()
+    // return rankings[hand][0] === handRank + 1 && rankings[hand][1] === handPercentage
+  }
+
   const { card1, card2 } = state;
 
   return (
