@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, Button } from 'react-native';
 
 import Card, { rankSuitType } from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
       <View style={styles.headerContainer}></View>
       <View style={styles.cardsContainer}>
         <Card id={card1} />
@@ -61,6 +61,9 @@ const App = () => {
           width={scrollPickerWidth}
           setPick={setHandPercentage}
         />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title='Check' onPress={() => {}} />
       </View>
     </View>
   );
@@ -86,7 +89,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
-  }
+  },
+  buttonContainer: {
+    marginBottom: 20,
+  },
 });
 
 export default App;
