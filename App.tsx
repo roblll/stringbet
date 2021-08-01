@@ -32,6 +32,14 @@ const App = () => {
     })
   })
 
+  const setHandRank = (handRank: number) => {
+    setState({ ...state, handRank })
+  }
+
+  const setHandPercentage = (handPercentage: number) => {
+    setState({ ...state, handPercentage })
+  }
+
   const { card1, card2 } = state;
 
   return (
@@ -43,8 +51,16 @@ const App = () => {
         <Card id={card2} />
       </View>
       <View style={styles.controlsContainer}>
-        <ScrollPicker data={data} width={scrollPickerWidth} />
-        <ScrollPicker data={data} width={scrollPickerWidth} />
+        <ScrollPicker
+          data={data}
+          width={scrollPickerWidth}
+          setPick={setHandRank}
+        />
+        <ScrollPicker
+          data={data}
+          width={scrollPickerWidth}
+          setPick={setHandPercentage}
+        />
       </View>
     </View>
   );

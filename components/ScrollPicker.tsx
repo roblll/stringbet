@@ -13,6 +13,7 @@ export type Props = {
   width?: number;
   transparentItemRows?: number;
   data: dataType[];
+  setPick: (pick: number) => void
 }
 
 const ScrollPicker: React.FC<Props> = ({ 
@@ -20,6 +21,7 @@ const ScrollPicker: React.FC<Props> = ({
   width = 300, 
   transparentItemRows = 3,
   data,
+  setPick,
 }) => {
   const [itemIndex, setItemIndex] = useState(0)
   let itemHeight = height / (transparentItemRows * 2 + 1);
