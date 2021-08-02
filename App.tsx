@@ -5,7 +5,7 @@ import { StyleSheet, View, Dimensions, Button } from 'react-native';
 import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
 
-import { getRandomHand, CardType } from "./utils/utils";
+import { getRandomHand, CardType, convertCardsToHand } from "./utils/utils";
 
 const scrollPickerWidth = Dimensions.get('window').width * 6 / 15 * .9;
 
@@ -42,7 +42,8 @@ const App = () => {
 
   const checkAnswer = () => {
     const { card1, card2, handRank, handPercentage } = state;
-    // hand = convertCardsToHand()
+    const hand = convertCardsToHand(card1, card2)
+    console.log(hand)
     // return rankings[hand][0] === handRank + 1 && rankings[hand][1] === handPercentage
   }
 
@@ -69,7 +70,7 @@ const App = () => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title='Check' onPress={() => {}} />
+        <Button title='Check' onPress={checkAnswer} />
       </View>
     </View>
   );

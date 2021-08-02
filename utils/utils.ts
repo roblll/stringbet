@@ -244,3 +244,37 @@ export const getRandomHand = () => {
   }
   return { card1, card2 };
 }
+
+const rankValue = {
+  '2': 2,
+  '3': 3,
+  '4': 4,
+  '5': 5,
+  '6': 6,
+  '7': 7,
+  '8': 8,
+  '9': 9,
+  'T': 10,
+  'J': 11,
+  'Q': 12,
+  'K': 13,
+  'A': 14,
+}
+
+export const convertCardsToHand = (card1: CardType, card2: CardType) => {
+  if (card1.rank === card2.rank) {
+    return `${card1.rank}${card2.rank}`
+  }
+  let hand = ''
+  if (rankValue[card1.rank] > rankValue[card2.rank]) {
+    hand = `${card1.rank}${card2.rank}`
+  } else {
+    hand = `${card2.rank}${card1.rank}`
+  }
+  if (card1.suit === card2.suit) {
+    hand += 's'
+  } else {
+    hand += 'o'
+  }
+  return hand
+}
