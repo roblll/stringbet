@@ -1,5 +1,3 @@
-import { rankSuitType } from '../components/Card'
-
 export const rankings = {
   'AA': [1, 1 / 169],
   'KK': [2, 2 / 169],
@@ -172,8 +170,63 @@ export const rankings = {
   '72o': [169, 169 / 169],
 }
 
-export const deck: rankSuitType[] = [
-  '2C', '2D', '2H', '2S', '3C', '3D', '3H', '3S', '4C', '4D', '4H', '4S', '5C', '5D', '5H', '5S', '6C', '6D', '6H', '6S', '7C', '7D', '7H', '7S', '8C', '8D', '8H', '8S', '9C', '9D', '9H', '9S', 'TC', 'TD', 'TH', 'TS', 'JC', 'JD', 'JH', 'JS', 'QC', 'QD', 'QH', 'QS', 'KC', 'KD', 'KH', 'KS', 'AC', 'AD', 'AH', 'AS',
+export type RankType = '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | 'T' | 'J' | 'Q' | 'K' | 'A';
+export type SuitType = 'C' | 'D' | 'H' | 'S';
+export type CardType = {rank: RankType, suit: SuitType}
+
+export const deck: CardType[] = [
+  {rank: '2', suit: 'C'},
+  {rank: '2', suit: 'D'},
+  {rank: '2', suit: 'H'},
+  {rank: '2', suit: 'S'},
+  {rank: '3', suit: 'C'},
+  {rank: '3', suit: 'D'},
+  {rank: '3', suit: 'H'},
+  {rank: '3', suit: 'S'},
+  {rank: '4', suit: 'C'},
+  {rank: '4', suit: 'D'},
+  {rank: '4', suit: 'H'},
+  {rank: '4', suit: 'S'},
+  {rank: '5', suit: 'C'},
+  {rank: '5', suit: 'D'},
+  {rank: '5', suit: 'H'},
+  {rank: '5', suit: 'S'},
+  {rank: '6', suit: 'C'},
+  {rank: '6', suit: 'D'},
+  {rank: '6', suit: 'H'},
+  {rank: '6', suit: 'S'},
+  {rank: '7', suit: 'C'},
+  {rank: '7', suit: 'D'},
+  {rank: '7', suit: 'H'},
+  {rank: '7', suit: 'S'},
+  {rank: '8', suit: 'C'},
+  {rank: '8', suit: 'D'},
+  {rank: '8', suit: 'H'},
+  {rank: '8', suit: 'S'},
+  {rank: '9', suit: 'C'},
+  {rank: '9', suit: 'D'},
+  {rank: '9', suit: 'H'},
+  {rank: '9', suit: 'S'},
+  {rank: 'T', suit: 'C'},
+  {rank: 'T', suit: 'D'},
+  {rank: 'T', suit: 'H'},
+  {rank: 'T', suit: 'S'},
+  {rank: 'J', suit: 'C'},
+  {rank: 'J', suit: 'D'},
+  {rank: 'J', suit: 'H'},
+  {rank: 'J', suit: 'S'},
+  {rank: 'Q', suit: 'C'},
+  {rank: 'Q', suit: 'D'},
+  {rank: 'Q', suit: 'H'},
+  {rank: 'Q', suit: 'S'},
+  {rank: 'K', suit: 'C'},
+  {rank: 'K', suit: 'D'},
+  {rank: 'K', suit: 'H'},
+  {rank: 'K', suit: 'S'},
+  {rank: 'A', suit: 'C'},
+  {rank: 'A', suit: 'D'},
+  {rank: 'A', suit: 'H'},
+  {rank: 'A', suit: 'S'},
 ]
 
 export const getRandomInt = (min: number, max: number) => {
