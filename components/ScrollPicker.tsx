@@ -50,7 +50,7 @@ const ScrollPicker: React.FC<Props> = ({
 
   const onMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const tempIndex = getItemTemporaryIndex(event)
-    setPick(tempIndex)
+    setPick(data[tempIndex].value)
   }
 
   const getItemTemporaryIndex = (event: any) => {
