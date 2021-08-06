@@ -9,9 +9,13 @@ import { getRandomHand, CardType, convertCardsToHand, getHandRank } from "./util
 
 const scrollPickerWidth = Dimensions.get('window').width * 6 / 15 * .9;
 
-const data: dataType[] = []
+const rankData: dataType[] = []
 for (let i = 1; i <= 169; i++) {
-  data.push({value: i, label: String(i)})
+  rankData.push({value: i, label: `${i}`})
+}
+const percentageData: dataType[] = []
+for (let i = 99; i >= 0; i--) {
+  percentageData.push({value: i, label: `${i} %`})
 }
 
 interface IAppData {
@@ -43,7 +47,8 @@ const App = () => {
   const checkAnswer = () => {
     const { card1, card2, handRank, handPercentage } = state;
     const hand = convertCardsToHand(card1, card2)
-    console.log(getHandRank(hand))
+    console.log(getHandRank(hand), handRank)
+    console.log(getHandRank(hand) === handRank)
     // return rankings[hand][0] === handRank + 1 && rankings[hand][1] === handPercentage
   }
 
@@ -59,12 +64,12 @@ const App = () => {
       </View>
       <View style={styles.controlsContainer}>
         <ScrollPicker
-          data={data}
+          data={rankData}
           width={scrollPickerWidth}
           setPick={setHandRank}
         />
         <ScrollPicker
-          data={data}
+          data={percentageData}
           width={scrollPickerWidth}
           setPick={setHandPercentage}
         />
