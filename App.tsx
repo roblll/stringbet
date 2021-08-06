@@ -74,12 +74,16 @@ const App = () => {
         <ScrollPicker
           data={rankData}
           width={scrollPickerWidth}
+          height={scrollPickerWidth}
           setPick={setHandRank}
+          transparentItemRows={1}
         />
         <ScrollPicker
           data={percentageData}
           width={scrollPickerWidth}
+          height={scrollPickerWidth}
           setPick={setHandPercentage}
+          transparentItemRows={1}
         />
       </View>
       <View style={styles.buttonContainer}>
