@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Platform, ScrollView, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Platform, ScrollView, NativeSyntheticEvent, NativeScrollEvent, ScrollViewComponent } from 'react-native';
 
 import PickerItem from './PickerItem';
 
@@ -9,6 +9,7 @@ export type dataType = {
 }
 
 export type Props = {
+  initialSelectedItem?: number;
   height?: number;
   width?: number;
   transparentItemRows?: number;
@@ -16,17 +17,27 @@ export type Props = {
   setPick: (pick: number) => void
 }
 
-const ScrollPicker: React.FC<Props> = ({ 
+const ScrollPicker: React.FC<Props> = ({
+  initialSelectedItem = 0,
   height = 300, 
   width = 300, 
   transparentItemRows = 3,
   data,
   setPick,
 }) => {
+
+  const scrollViewRef = useRef<ScrollView>(null);
+
   const [itemIndex, setItemIndex] = useState(0)
   let itemHeight = height / (transparentItemRows * 2 + 1);
   if (Platform.OS === 'ios') {
     itemHeight = Math.ceil(itemHeight);
+  }
+
+  const scrollToInitialPosition = () => {
+    scrollViewRef.current?.scrollTo({
+      y: itemHeight * initialSelectedItem,
+    })
   }
 
   const fakeItems = (n = 3) => {
@@ -62,6 +73,8 @@ const ScrollPicker: React.FC<Props> = ({
   return (
     <View style={{ height, width }}>
       <ScrollView
+        ref={scrollViewRef}
+        onLayout={scrollToInitialPosition}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         snapToInterval={itemHeight}
