@@ -76,6 +76,10 @@ export const getRandomHand = () => {
   return { card1, card2 };
 }
 
+export const getRandomRankAndPercentage = () => {
+  return { handRank: getRandomInt(1, 169), handPercentage: getRandomInt(0, 99)}
+}
+
 const rankValue = {
   '2': 2,
   '3': 3,
