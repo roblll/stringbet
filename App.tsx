@@ -6,11 +6,12 @@ import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
 
 import { 
-  getRandomHand, 
+  getRandomHand,
+  getRandomRankAndPercentage,
   CardType, 
   convertCardsToHand, 
   getHandRank, 
-  getHandPercentage 
+  getHandPercentage,
 } from "./utils/utils";
 
 const scrollPickerWidth = Dimensions.get('window').width * 6 / 15 * .9;
@@ -33,12 +34,13 @@ interface IAppData {
 
 const App = () => {
   const [state, setState] = useState<IAppData>(() => {
-    const { card1, card2 } = getRandomHand()
+    const { card1, card2 } = getRandomHand();
+    const { handRank, handPercentage } = getRandomRankAndPercentage();
     return ({
       card1,
       card2,
-      handRank: 0,
-      handPercentage: 99,
+      handRank,
+      handPercentage,
     })
   })
 
@@ -60,7 +62,7 @@ const App = () => {
     // return rankings[hand][0] === handRank + 1 && rankings[hand][1] === handPercentage
   }
 
-  const { card1, card2 } = state;
+  const { card1, card2, handRank, handPercentage } = state;
 
   return (
     <View style={styles.container}>
@@ -72,6 +74,7 @@ const App = () => {
       </View>
       <View style={styles.controlsContainer}>
         <ScrollPicker
+          initialSelectedItem={handRank}
           data={rankData}
           width={scrollPickerWidth}
           height={scrollPickerWidth}
@@ -79,6 +82,7 @@ const App = () => {
           transparentItemRows={1}
         />
         <ScrollPicker
+          initialSelectedItem={handPercentage}
           data={percentageData}
           width={scrollPickerWidth}
           height={scrollPickerWidth}
