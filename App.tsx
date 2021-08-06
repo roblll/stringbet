@@ -101,21 +101,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerContainer: {
-    flex: 1,
+    flex: 3,
   },
   cardsContainer: {
-    flex: 1,
+    flex: 3,
     flexDirection: 'row',
   },
   controlsContainer: {
-    flex: 1,
+    flex: 1.5,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
   },
   buttonContainer: {
+    flex: 1.5,
     marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 
