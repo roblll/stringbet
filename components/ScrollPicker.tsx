@@ -34,6 +34,11 @@ const ScrollPicker: React.FC<Props> = ({
     itemHeight = Math.ceil(itemHeight);
   }
 
+  const snapOffsets = []
+  for (let i = 0; i < data.length; i++) {
+    snapOffsets.push(itemHeight * i)
+  }
+
   const scrollToInitialPosition = () => {
     scrollViewRef.current?.scrollTo({
       y: itemHeight * initialSelectedItem,
@@ -97,7 +102,7 @@ const ScrollPicker: React.FC<Props> = ({
         onLayout={scrollToInitialPosition}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        snapToInterval={itemHeight}
+        snapToOffsets={snapOffsets}
         scrollEventThrottle={0}
         overScrollMode={"never"}
         bounces={false}
