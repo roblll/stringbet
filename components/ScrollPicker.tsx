@@ -59,12 +59,46 @@ const ScrollPicker: React.FC<Props> = ({
     ];
   }
 
-  const onMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const tempIndex = getItemTemporaryIndex(event)
-    setPick(data[tempIndex].value)
+  const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const tempIndex = getItemTemporaryIndex(event);
+    if (
+      itemIndex !== tempIndex &&
+      tempIndex >= 0 &&
+      tempIndex < data.length
+    ) {
+      setPick(data[tempIndex].value)
+    }
   }
 
-  const getItemTemporaryIndex = (event: any) => {
+  const onMomentumScrollBegin = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const tempIndex = getItemTemporaryIndex(event)
+    if (tempIndex >= 0 && tempIndex < data.length) {
+      setPick(data[tempIndex].value)
+    }
+  }
+
+  const onMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const tempIndex = getItemTemporaryIndex(event)
+    if (tempIndex >= 0 && tempIndex < data.length) {
+      setPick(data[tempIndex].value)
+    }
+  }
+
+  const onScrollBeginDrag = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const tempIndex = getItemTemporaryIndex(event)
+    if (tempIndex >= 0 && tempIndex < data.length) {
+      setPick(data[tempIndex].value)
+    }
+  }
+
+  const onScrollEndDrag = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const tempIndex = getItemTemporaryIndex(event)
+    if (tempIndex >= 0 && tempIndex < data.length) {
+      setPick(data[tempIndex].value)
+    }
+  }
+
+  const getItemTemporaryIndex = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     return Math.round(
       event.nativeEvent.contentOffset.y / itemHeight,
     );
@@ -81,8 +115,20 @@ const ScrollPicker: React.FC<Props> = ({
         scrollEventThrottle={0}
         overScrollMode={"never"}
         bounces={false}
+        onMomentumScrollBegin={(event) => {
+          onMomentumScrollBegin(event)
+        }}
         onMomentumScrollEnd={(event) => {
           onMomentumScrollEnd(event);
+        }}
+        onScrollBeginDrag={(event) => {
+          onScrollBeginDrag(event)
+        }}
+        onScrollEndDrag={(event) => {
+          onScrollEndDrag(event)
+        }}
+        onScroll={(event) => {
+          onScroll(event);
         }}
       >
         {extendedItems().map((item, index) => {
