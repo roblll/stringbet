@@ -56,11 +56,13 @@ const App = () => {
   const checkAnswer = () => {
     const { card1, card2, handRank, handPercentage } = state;
     const hand = convertCardsToHand(card1, card2)
-    console.log(getHandRank(hand), handRank)
-    console.log(getHandRank(hand) === handRank)
-    console.log(getHandPercentage(getHandRank(hand)), handPercentage)
-    console.log(getHandPercentage(getHandRank(hand)) === handPercentage)
-    // return rankings[hand][0] === handRank + 1 && rankings[hand][1] === handPercentage
+    const answerHandRank = getHandRank(hand)
+    const answerHandPercentage = getHandPercentage(answerHandRank)
+    if (answerHandRank === handRank && answerHandPercentage === handPercentage) {
+      alert(`Correct!`)
+    } else {
+      alert(`Wrong! ranks is ${answerHandRank} and percentage is ${answerHandPercentage} %.`)
+    }
   }
 
   const { card1, card2, handRank, handPercentage } = state;
