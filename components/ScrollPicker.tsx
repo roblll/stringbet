@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, Platform, ScrollView, NativeSyntheticEvent, NativeScrollEvent, ScrollViewComponent } from 'react-native';
+import { View, Platform, ScrollView, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 
 import PickerItem from './PickerItem';
 
@@ -70,21 +70,7 @@ const ScrollPicker: React.FC<Props> = ({
     }
   }
 
-  const onMomentumScrollBegin = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const tempIndex = getItemTemporaryIndex(event)
-    if (tempIndex >= 0 && tempIndex < data.length) {
-      setPick(data[tempIndex].value)
-    }
-  }
-
   const onMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const tempIndex = getItemTemporaryIndex(event)
-    if (tempIndex >= 0 && tempIndex < data.length) {
-      setPick(data[tempIndex].value)
-    }
-  }
-
-  const onScrollBeginDrag = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const tempIndex = getItemTemporaryIndex(event)
     if (tempIndex >= 0 && tempIndex < data.length) {
       setPick(data[tempIndex].value)
@@ -115,14 +101,8 @@ const ScrollPicker: React.FC<Props> = ({
         scrollEventThrottle={0}
         overScrollMode={"never"}
         bounces={false}
-        onMomentumScrollBegin={(event) => {
-          onMomentumScrollBegin(event)
-        }}
         onMomentumScrollEnd={(event) => {
           onMomentumScrollEnd(event);
-        }}
-        onScrollBeginDrag={(event) => {
-          onScrollBeginDrag(event)
         }}
         onScrollEndDrag={(event) => {
           onScrollEndDrag(event)
