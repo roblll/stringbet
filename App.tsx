@@ -15,6 +15,7 @@ import {
 } from "./utils/utils";
 
 const scrollPickerWidth = Dimensions.get('window').width * 6 / 15 * .9;
+const scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
 
 const rankData: dataType[] = []
 for (let i = 1; i <= 169; i++) {
@@ -77,7 +78,7 @@ const App = () => {
           initialSelectedItem={handRank}
           data={rankData}
           width={scrollPickerWidth}
-          height={scrollPickerWidth}
+          height={scrollPickerHeight}
           setPick={setHandRank}
           transparentItemRows={1}
         />
@@ -85,7 +86,7 @@ const App = () => {
           initialSelectedItem={handPercentage}
           data={percentageData}
           width={scrollPickerWidth}
-          height={scrollPickerWidth}
+          height={scrollPickerHeight}
           setPick={setHandPercentage}
           transparentItemRows={1}
         />
