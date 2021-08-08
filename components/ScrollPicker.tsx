@@ -126,7 +126,7 @@ const ScrollPicker: React.FC<Props> = ({
           width: '100%',
           top: 0,
           borderBottomWidth: 1,
-          borderColor: '#000',
+          borderColor: '#48CFAD',
           height: transparentItemRows * itemHeight,
         }}
         pointerEvents="none" />
@@ -136,7 +136,7 @@ const ScrollPicker: React.FC<Props> = ({
             width: '100%',
             bottom: 0,
             borderTopWidth: 1,
-            borderTopColor: '#000',
+            borderTopColor: '#48CFAD',
             height: transparentItemRows * itemHeight,
           }}
           pointerEvents="none" />
