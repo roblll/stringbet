@@ -16,7 +16,11 @@ const PickerItem: React.FC<Props> = ({ label, style }) => {
       alignItems: 'center', 
       justifyContent: 'center',
     }}>
-      <Text>
+      <Text
+        style={{
+          color: '#000',
+        }}
+      >
         {label}
       </Text>
     </View>
