@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, View, Dimensions, Button } from 'react-native';
+import { StyleSheet, View, Dimensions, Button, Modal, Text } from 'react-native';
 
 import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
@@ -31,6 +31,7 @@ interface IAppData {
   card2: CardType;
   handRank: number;
   handPercentage: number;
+  modalVisible: boolean;
 }
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
       card2,
       handRank,
       handPercentage,
+      modalVisible: false,
     })
   })
 
@@ -58,18 +60,32 @@ const App = () => {
     const hand = convertCardsToHand(card1, card2)
     const answerHandRank = getHandRank(hand)
     const answerHandPercentage = getHandPercentage(answerHandRank)
+    const newHand = getRandomHand();
     if (answerHandRank === handRank && answerHandPercentage === handPercentage) {
-      alert(`Correct!`)
+      setState({ 
+        ...state, 
+        modalVisible: true,
+      })
     } else {
-      alert(`Wrong! ranks is ${answerHandRank} and percentage is ${answerHandPercentage} %.`)
+      setState({ 
+        ...state, 
+        modalVisible: true,
+      })
     }
   }
 
-  const { card1, card2, handRank, handPercentage } = state;
+  const { card1, card2, handRank, handPercentage, modalVisible } = state;
 
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
+      <Modal visible={modalVisible} transparent={true}>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text>Modal</Text>
+          </View> 
+        </View>
+      </Modal>
       <View style={styles.headerContainer}></View>
       <View style={styles.cardsContainer}>
         <Card rank={card1.rank} suit={card1.suit} />
@@ -127,6 +143,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    height: 100,
+    width: 100,
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 });
 
 export default App;
