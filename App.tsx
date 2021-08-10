@@ -91,7 +91,18 @@ const App = () => {
     }, 2300)
   }
 
-  const { card1, card2, handRank, handPercentage, resultVisible } = state;
+  const { 
+    card1, 
+    card2, 
+    handRank, 
+    handPercentage, 
+    resultVisible, 
+    resultMessage: {
+      result,
+      answerHandRank,
+      answerHandPercentage,
+    } 
+  } = state;
 
   return (
     <View style={styles.container}>
@@ -102,7 +113,11 @@ const App = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Result />
+            <Result 
+              message={result} 
+              rank={answerHandRank} 
+              percentage={answerHandPercentage} 
+            />
           </View> 
         </View>
       </Modal>
