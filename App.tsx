@@ -4,6 +4,7 @@ import { StyleSheet, View, Dimensions, Button, Modal, Text } from 'react-native'
 
 import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
+import Result from './components/Results';
 
 import { 
   getRandomHand,
@@ -87,7 +88,7 @@ const App = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Text>Result</Text>
+            <Result />
           </View> 
         </View>
       </Modal>
