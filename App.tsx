@@ -31,7 +31,7 @@ interface IAppData {
   card2: CardType;
   handRank: number;
   handPercentage: number;
-  modalVisible: boolean;
+  resultVisible: boolean;
 }
 
 const App = () => {
@@ -43,7 +43,7 @@ const App = () => {
       card2,
       handRank,
       handPercentage,
-      modalVisible: false,
+      resultVisible: false,
     })
   })
 
@@ -70,23 +70,23 @@ const App = () => {
   }
 
   const showResult = () => {
-    setState({ ...state, modalVisible: true})
+    setState({ ...state, resultVisible: true})
   }
 
-  const { card1, card2, handRank, handPercentage, modalVisible } = state;
+  const { card1, card2, handRank, handPercentage, resultVisible } = state;
 
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
       <Modal
-        visible={modalVisible}
+        visible={resultVisible}
         transparent={true}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text>Modal</Text>
             <Button title="close" onPress={() => {
-              setState({...state, modalVisible: false});
+              setState({...state, resultVisible: false});
             }} />
           </View> 
         </View>
