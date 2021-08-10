@@ -70,7 +70,10 @@ const App = () => {
   }
 
   const showResult = () => {
-    setState({ ...state, resultVisible: true})
+    setState({ ...state, resultVisible: true })
+    setTimeout(() => {
+      setState({ ...state, resultVisible: false })
+    }, 2300)
   }
 
   const { card1, card2, handRank, handPercentage, resultVisible } = state;
@@ -84,10 +87,7 @@ const App = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Text>Modal</Text>
-            <Button title="close" onPress={() => {
-              setState({...state, resultVisible: false});
-            }} />
+            <Text>Result</Text>
           </View> 
         </View>
       </Modal>
