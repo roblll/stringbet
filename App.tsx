@@ -33,6 +33,11 @@ interface IAppData {
   handRank: number;
   handPercentage: number;
   resultVisible: boolean;
+  resultMessage: {
+    result: string,
+    answerHandRank: number,
+    answerHandPercentage: number,
+  }
 }
 
 const App = () => {
@@ -45,6 +50,11 @@ const App = () => {
       handRank,
       handPercentage,
       resultVisible: false,
+      resultMessage: {
+        result: '',
+        answerHandRank: 1,
+        answerHandPercentage: 1,
+      }
     })
   })
 
@@ -61,19 +71,23 @@ const App = () => {
     const hand = convertCardsToHand(card1, card2)
     const answerHandRank = getHandRank(hand)
     const answerHandPercentage = getHandPercentage(answerHandRank)
-    const newHand = getRandomHand();
-    if (answerHandRank === handRank && answerHandPercentage === handPercentage) {
-      console.log('correct')
-    } else {
-      console.log('wrong')
-    }
-    showResult()
+    const result = answerHandRank === handRank && answerHandPercentage === handPercentage ? 'correct' : 'incorrect';
+    showResult(result, answerHandRank, answerHandPercentage)
   }
 
-  const showResult = () => {
-    setState({ ...state, resultVisible: true })
+  const showResult = (
+    result: string, 
+    answerHandRank: number, 
+    answerHandPercentage: number
+    ) => {
+    setState({ 
+      ...state, 
+      resultVisible: true, 
+      resultMessage: { result, answerHandRank, answerHandPercentage }
+    })
     setTimeout(() => {
-      setState({ ...state, resultVisible: false })
+      const newHand = getRandomHand();
+      setState({ ...state, resultVisible: false, card1: newHand.card1, card2: newHand.card2 })
     }, 2300)
   }
 
