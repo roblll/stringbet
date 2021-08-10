@@ -79,10 +79,16 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <Modal visible={modalVisible} transparent={true}>
+      <Modal
+        visible={modalVisible}
+        transparent={true}
+      >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text>Modal</Text>
+            <Button title="close" onPress={() => {
+              setState({...state, modalVisible: false});
+            }} />
           </View> 
         </View>
       </Modal>
