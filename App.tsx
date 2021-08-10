@@ -62,16 +62,15 @@ const App = () => {
     const answerHandPercentage = getHandPercentage(answerHandRank)
     const newHand = getRandomHand();
     if (answerHandRank === handRank && answerHandPercentage === handPercentage) {
-      setState({ 
-        ...state, 
-        modalVisible: true,
-      })
+      console.log('correct')
     } else {
-      setState({ 
-        ...state, 
-        modalVisible: true,
-      })
+      console.log('wrong')
     }
+    showResult()
+  }
+
+  const showResult = () => {
+    setState({ ...state, modalVisible: true})
   }
 
   const { card1, card2, handRank, handPercentage, modalVisible } = state;
