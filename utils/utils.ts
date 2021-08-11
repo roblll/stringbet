@@ -115,7 +115,7 @@ export const convertCardsToHand = (card1: CardType, card2: CardType) => {
 }
 
 export const getHandRank = (hand: string) => {
-  return rankings.indexOf(hand)
+  return rankings.indexOf(hand) + 1
 }
 
 export const getHandPercentage = (handRank: number) => {
