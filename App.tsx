@@ -111,15 +111,11 @@ const App = () => {
         visible={resultVisible}
         transparent={true}
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Result 
-              message={result} 
-              rank={answerHandRank} 
-              percentage={answerHandPercentage} 
-            />
-          </View> 
-        </View>
+        <Result 
+          message={result} 
+          rank={answerHandRank} 
+          percentage={answerHandPercentage} 
+        />
       </Modal>
       <View style={styles.headerContainer}></View>
       <View style={styles.cardsContainer}>
@@ -178,18 +174,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    height: 100,
-    width: 100,
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
 });
 
 export default App;
