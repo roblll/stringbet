@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 const size = Dimensions.get('window').width / 2;
 
@@ -10,14 +11,21 @@ type Props = {
 }
 
 const Result: React.FC<Props> = ({ message, rank, percentage }) => {
-  return (
+  return message === 'correct' ? (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text>{message}</Text>
+        <MaterialIcons name="check" size={24} color="#23A484" />
         <Text>{`rank: ${rank} - percentage: ${percentage}%`}</Text>
       </View>
     </View>
-  )
+  ) : (
+    <View style={styles.container}>
+      <View style={styles.content}>
+        <MaterialIcons name="close" size={24} color="#FC6E51" />
+        <Text>{`rank: ${rank} - percentage: ${percentage}%`}</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
