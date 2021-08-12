@@ -35,6 +35,7 @@ interface IAppData {
   resultVisible: boolean;
   resultMessage: {
     result: boolean,
+    hand: string,
     answerHandRank: number,
     answerHandPercentage: number,
   }
@@ -52,6 +53,7 @@ const App = () => {
       resultVisible: false,
       resultMessage: {
         result: false,
+        hand: '',
         answerHandRank: 1,
         answerHandPercentage: 1,
       }
@@ -72,18 +74,19 @@ const App = () => {
     const answerHandRank = getHandRank(hand)
     const answerHandPercentage = getHandPercentage(answerHandRank)
     const result = answerHandRank === handRank && answerHandPercentage === handPercentage;
-    showResult(result, answerHandRank, answerHandPercentage)
+    showResult(result, hand, answerHandRank, answerHandPercentage)
   }
 
   const showResult = (
-    result: boolean, 
+    result: boolean,
+    hand: string,
     answerHandRank: number, 
     answerHandPercentage: number
     ) => {
     setState({ 
       ...state, 
       resultVisible: true, 
-      resultMessage: { result, answerHandRank, answerHandPercentage }
+      resultMessage: { result, hand, answerHandRank, answerHandPercentage }
     })
     setTimeout(() => {
       const newHand = getRandomHand();
@@ -99,6 +102,7 @@ const App = () => {
     resultVisible, 
     resultMessage: {
       result,
+      hand,
       answerHandRank,
       answerHandPercentage,
     } 
@@ -112,7 +116,8 @@ const App = () => {
         transparent={true}
       >
         <Result 
-          result={result} 
+          result={result}
+          hand={hand}
           rank={answerHandRank} 
           percentage={answerHandPercentage} 
         />
