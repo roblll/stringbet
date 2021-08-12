@@ -34,7 +34,7 @@ interface IAppData {
   handPercentage: number;
   resultVisible: boolean;
   resultMessage: {
-    result: string,
+    result: boolean,
     answerHandRank: number,
     answerHandPercentage: number,
   }
@@ -51,7 +51,7 @@ const App = () => {
       handPercentage,
       resultVisible: false,
       resultMessage: {
-        result: '',
+        result: false,
         answerHandRank: 1,
         answerHandPercentage: 1,
       }
@@ -71,12 +71,12 @@ const App = () => {
     const hand = convertCardsToHand(card1, card2)
     const answerHandRank = getHandRank(hand)
     const answerHandPercentage = getHandPercentage(answerHandRank)
-    const result = answerHandRank === handRank && answerHandPercentage === handPercentage ? 'correct' : 'incorrect';
+    const result = answerHandRank === handRank && answerHandPercentage === handPercentage;
     showResult(result, answerHandRank, answerHandPercentage)
   }
 
   const showResult = (
-    result: string, 
+    result: boolean, 
     answerHandRank: number, 
     answerHandPercentage: number
     ) => {
@@ -112,7 +112,7 @@ const App = () => {
         transparent={true}
       >
         <Result 
-          message={result} 
+          result={result} 
           rank={answerHandRank} 
           percentage={answerHandPercentage} 
         />

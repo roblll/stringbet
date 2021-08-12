@@ -5,13 +5,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 const size = Dimensions.get('window').width / 2;
 
 type Props = {
-  message: string;
+  result: boolean;
   rank: number;
   percentage: number;
 }
 
-const Result: React.FC<Props> = ({ message, rank, percentage }) => {
-  return message === 'correct' ? (
+const Result: React.FC<Props> = ({ result, rank, percentage }) => {
+  return result ? (
     <View style={styles.container}>
       <View style={styles.content}>
         <MaterialIcons name="check" size={24} color="#23A484" />
