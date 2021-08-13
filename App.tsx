@@ -5,6 +5,7 @@ import { StyleSheet, View, Dimensions, Button, Modal, Text } from 'react-native'
 import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
 import Result from './components/Results';
+import ChipButton from './components/ChipButton';
 
 import { 
   getRandomHand,
@@ -147,6 +148,7 @@ const App = () => {
       </View>
       <View style={styles.buttonContainer}>
         <Button title='Check' onPress={checkAnswer} />
+        <ChipButton />
       </View>
     </View>
   );
