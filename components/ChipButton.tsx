@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Image, StyleSheet, Dimensions } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 
 const width = Dimensions.get('window').width * .25;
 
 const ChipButton = () => {
   return (
-    <View>
+    <TouchableOpacity activeOpacity={1} onPress={() => alert('test')}>
       <Image style={styles.chipImage} source={require('../assets/chip.png')} />
-    </View>
+    </TouchableOpacity>
   )
 }
 
