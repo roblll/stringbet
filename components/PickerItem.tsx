@@ -19,6 +19,7 @@ const PickerItem: React.FC<Props> = ({ label, style }) => {
       <Text
         style={{
           color: '#093b2c',
+          fontWeight: '500',
         }}
       >
         {label}
