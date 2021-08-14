@@ -4,6 +4,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
+const contentWidth = width * .55;
+const contentHeight = contentWidth * 691 / 1056;
 
 type Props = {
   result: boolean;
@@ -38,8 +40,8 @@ const styles = StyleSheet.create({
   },
   content: {
     position: 'absolute',
-    height: width / 4,
-    width: width / 2,
+    height: contentHeight,
+    width: contentWidth,
     backgroundColor: '#fff',
     borderColor: '#0d7854',
     borderWidth: 1,
