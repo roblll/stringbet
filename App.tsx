@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, View, Dimensions, Button, Modal, Text } from 'react-native';
+import { StyleSheet, View, Dimensions, Modal } from 'react-native';
 
 import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
@@ -147,7 +147,6 @@ const App = () => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title='Check' onPress={checkAnswer} />
         <ChipButton onPress={checkAnswer} />
       </View>
     </View>
