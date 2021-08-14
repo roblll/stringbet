@@ -148,7 +148,7 @@ const App = () => {
       </View>
       <View style={styles.buttonContainer}>
         <Button title='Check' onPress={checkAnswer} />
-        <ChipButton />
+        <ChipButton onPress={checkAnswer} />
       </View>
     </View>
   );
