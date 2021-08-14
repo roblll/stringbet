@@ -89,10 +89,11 @@ const App = () => {
       resultVisible: true, 
       resultMessage: { result, hand, answerHandRank, answerHandPercentage }
     })
-    setTimeout(() => {
-      const newHand = getRandomHand();
-      setState({ ...state, resultVisible: false, card1: newHand.card1, card2: newHand.card2 })
-    }, 2300)
+  }
+
+  const hideResult = () => {
+    const newHand = getRandomHand();
+    setState({ ...state, resultVisible: false, card1: newHand.card1, card2: newHand.card2 })
   }
 
   const { 
@@ -121,6 +122,7 @@ const App = () => {
           hand={hand}
           rank={answerHandRank} 
           percentage={answerHandPercentage} 
+          hide={hideResult}
         />
       </Modal>
       <View style={styles.headerContainer}></View>

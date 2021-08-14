@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; 
 
 const width = Dimensions.get('window').width;
@@ -12,14 +12,15 @@ type Props = {
   hand: string;
   rank: number;
   percentage: number;
+  hide: () => void;
 }
 
-const Result: React.FC<Props> = ({ result, hand, rank, percentage }) => {
+const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
   const icon = result ? 
                <MaterialIcons name="check" size={24} color="#23A484" /> : 
                <MaterialIcons name="close" size={24} color="#FC6E51" />
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={hide}>
       <View style={styles.bg}></View>
       <View style={styles.content}>
         {icon}
@@ -28,7 +29,7 @@ const Result: React.FC<Props> = ({ result, hand, rank, percentage }) => {
 ${rank} (${percentage}%)`}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
