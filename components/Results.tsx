@@ -17,16 +17,23 @@ type Props = {
 
 const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
   const icon = result ? 
-               <MaterialIcons name="check" size={24} color="#23A484" /> : 
-               <MaterialIcons name="close" size={24} color="#FC6E51" />
+               <MaterialIcons 
+                name="check" 
+                size={contentHeight / 6} 
+                color="#23A484" 
+               /> : 
+               <MaterialIcons 
+                name="close" 
+                size={contentHeight / 6}
+                color="#FC6E51" 
+               />
   return (
     <TouchableOpacity style={styles.container} onPress={hide}>
       <View style={styles.bg}></View>
       <View style={styles.content}>
         {icon}
         <Text style={styles.text}>
-{`${hand} is 
-${rank} (${percentage}%)`}
+          {`${hand} is ${rank} (${percentage}%)`}
         </Text>
       </View>
     </TouchableOpacity>
@@ -46,13 +53,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderColor: '#0d7854',
     borderWidth: 1,
-    borderRadius: width / 55,
+    borderRadius: width / 50,
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
     margin: 10,
     textAlign: 'center',
+    fontSize: contentHeight / 9,
   },
   bg: {
     flex: 1,
