@@ -1,10 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Stats = () => {
+type Props = {
+  streak: number;
+  correct: number;
+  incorrect: number;
+}
+
+const Stats: React.FC<Props> = ({ streak, correct, incorrect }) => {
   return (
     <View style={styles.container}>
-      <Text>Stats</Text>
+      <Text>{`${correct} - ${incorrect} (${streak})`}</Text>
     </View>
   );
 }

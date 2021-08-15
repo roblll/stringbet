@@ -126,7 +126,9 @@ const App = () => {
           hide={hideResult}
         />
       </Modal>
-      <View style={styles.headerContainer}><Stats /></View>
+      <View style={styles.headerContainer}>
+        <Stats correct={1} incorrect={3} streak={0} />
+      </View>
       <View style={styles.cardsContainer}>
         <Card rank={card1.rank} suit={card1.suit} />
         <Card rank={card2.rank} suit={card2.suit} />
