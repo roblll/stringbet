@@ -91,11 +91,15 @@ const App = () => {
     answerHandRank: number, 
     answerHandPercentage: number
     ) => {
-    setState({ 
-      ...state, 
-      resultVisible: true, 
-      resultMessage: { result, hand, answerHandRank, answerHandPercentage }
-    })
+      const newStreak = result ? streak + 1 : 0;
+      setState({ 
+        ...state, 
+        resultVisible: true, 
+        resultMessage: { result, hand, answerHandRank, answerHandPercentage },
+        correct: result ? correct + 1 : correct,
+        guesses: guesses + 1,
+        streak: newStreak,
+      })
   }
 
   const hideResult = () => {
