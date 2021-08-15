@@ -40,7 +40,10 @@ interface IAppData {
     hand: string,
     answerHandRank: number,
     answerHandPercentage: number,
-  }
+  };
+  correct: number;
+  guesses: number;
+  streak: number;
 }
 
 const App = () => {
@@ -58,7 +61,10 @@ const App = () => {
         hand: '',
         answerHandRank: 1,
         answerHandPercentage: 1,
-      }
+      },
+      correct: 0,
+      guesses: 0,
+      streak: 0,
     })
   })
 
@@ -108,7 +114,10 @@ const App = () => {
       hand,
       answerHandRank,
       answerHandPercentage,
-    } 
+    },
+    correct,
+    guesses,
+    streak,
   } = state;
 
   return (
@@ -127,7 +136,7 @@ const App = () => {
         />
       </Modal>
       <View style={styles.headerContainer}>
-        <Stats correct={1} incorrect={3} streak={0} />
+        <Stats correct={correct} guesses={guesses} streak={streak} />
       </View>
       <View style={styles.cardsContainer}>
         <Card rank={card1.rank} suit={card1.suit} />
