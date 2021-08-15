@@ -19,12 +19,12 @@ const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
   const icon = result ? 
                <MaterialIcons 
                 name="check" 
-                size={contentHeight / 6} 
+                size={contentHeight / 3} 
                 color="#23A484" 
                /> : 
                <MaterialIcons 
                 name="close" 
-                size={contentHeight / 6}
+                size={contentHeight / 3}
                 color="#FC6E51" 
                />
   return (
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     margin: 10,
     textAlign: 'center',
     fontSize: contentHeight / 9,
+    fontWeight: '400',
   },
   bg: {
     flex: 1,
