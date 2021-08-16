@@ -7,6 +7,7 @@ import ScrollPicker, { dataType } from './components/ScrollPicker';
 import Result from './components/Results';
 import ChipButton from './components/ChipButton';
 import Stats from './components/Stats';
+import Title from './components/Title';
 
 import { 
   getRandomHand,
@@ -140,6 +141,7 @@ const App = () => {
         />
       </Modal>
       <View style={styles.headerContainer}>
+        <Title />
         <Stats correct={correct} guesses={guesses} streak={streak} />
       </View>
       <View style={styles.cardsContainer}>
