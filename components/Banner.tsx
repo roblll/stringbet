@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   container: {
     height: 50,
     width: '100%',
-    backgroundColor: 'red',
+    backgroundColor: 'gray',
   }
 })
 

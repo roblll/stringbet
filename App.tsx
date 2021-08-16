@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, View, Dimensions, Modal } from 'react-native';
+import Constants from "expo-constants";
 
 import Card from './components/Card';
 import ScrollPicker, { dataType } from './components/ScrollPicker';
@@ -129,6 +130,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
+      <View style={{height: Constants.statusBarHeight}}></View>
       <Modal
         visible={resultVisible}
         transparent={true}
