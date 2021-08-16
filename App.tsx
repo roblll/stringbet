@@ -8,6 +8,7 @@ import Result from './components/Results';
 import ChipButton from './components/ChipButton';
 import Stats from './components/Stats';
 import Title from './components/Title';
+import Banner from './components/Banner';
 
 import { 
   getRandomHand,
@@ -140,6 +141,7 @@ const App = () => {
           hide={hideResult}
         />
       </Modal>
+      <Banner />
       <View style={styles.headerContainer}>
         <Title />
         <Stats correct={correct} guesses={guesses} streak={streak} />
