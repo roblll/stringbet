@@ -10,16 +10,18 @@ type Props = {
 const Stats: React.FC<Props> = ({ streak, correct, guesses }) => {
   return (
     <View style={styles.container}>
-      <Text>{`${correct} - ${guesses} (${streak})`}</Text>
+      <Text style={styles.content}>{`${correct} - ${guesses} (${streak})`}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginBottom: 16,
+  },
+  content: {
+    color: '#093b2c',
+    fontWeight: '500',
   }
 })
 
