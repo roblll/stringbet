@@ -38,6 +38,7 @@ interface IAppData {
   handRank: number;
   handPercentage: number;
   resultVisible: boolean;
+  guideVisible: boolean;
   resultMessage: {
     result: boolean,
     hand: string,
@@ -59,6 +60,7 @@ const App = () => {
       handRank,
       handPercentage,
       resultVisible: false,
+      guideVisible: false,
       resultMessage: {
         result: false,
         hand: '',
@@ -115,7 +117,8 @@ const App = () => {
     card2, 
     handRank, 
     handPercentage, 
-    resultVisible, 
+    resultVisible,
+    guideVisible,
     resultMessage: {
       result,
       hand,
@@ -142,6 +145,12 @@ const App = () => {
           percentage={answerHandPercentage} 
           hide={hideResult}
         />
+      </Modal>
+      <Modal
+        visible={guideVisible}
+        transparent={true}
+      >
+        <View style={{height: 200, width: 200, backgroundColor: 'red'}}></View>
       </Modal>
       <Banner />
       <View style={styles.headerContainer}>
