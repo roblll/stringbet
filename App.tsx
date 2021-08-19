@@ -10,6 +10,7 @@ import ChipButton from './components/ChipButton';
 import Stats from './components/Stats';
 import Title from './components/Title';
 import Banner from './components/Banner';
+import Guide from './components/Guide';
 
 import { 
   getRandomHand,
@@ -150,7 +151,7 @@ const App = () => {
         visible={guideVisible}
         transparent={true}
       >
-        <View style={{height: 200, width: 200, backgroundColor: 'red'}}></View>
+        <Guide />
       </Modal>
       <Banner />
       <View style={styles.headerContainer}>
