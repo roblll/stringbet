@@ -114,7 +114,11 @@ const App = () => {
   }
 
   const showGuide = () => {
-    console.log('show guide')
+    setState({ ...state, guideVisible: true })
+  }
+
+  const hideGuide = () => {
+    setState({ ...state, guideVisible: false })
   }
 
   const { 
