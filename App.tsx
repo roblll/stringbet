@@ -113,6 +113,10 @@ const App = () => {
     setState({ ...state, resultVisible: false, card1: newHand.card1, card2: newHand.card2 })
   }
 
+  const showGuide = () => {
+    console.log('show guide')
+  }
+
   const { 
     card1, 
     card2, 
@@ -155,7 +159,7 @@ const App = () => {
       </Modal>
       <Banner />
       <View style={styles.headerContainer}>
-        <Title />
+        <Title onPress={showGuide} />
       </View>
       <Stats correct={correct} guesses={guesses} streak={streak} />
       <View style={styles.cardsContainer}>

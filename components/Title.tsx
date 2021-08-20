@@ -3,12 +3,16 @@ import { Dimensions, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const width = Dimensions.get('window').width * .55;
 
-const Title = () => {
+type Props = {
+  onPress: () => void;
+}
+
+const Title: React.FC<Props> = ({ onPress }) => {
   return (
     <TouchableOpacity
       style={styles.container}
       activeOpacity={1} 
-      onPress={() => alert('test')}
+      onPress={onPress}
     >
       <Image style={styles.logo} source={require('../assets/stringbet-full-logo.png')} />
     </TouchableOpacity>
