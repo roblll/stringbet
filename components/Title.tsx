@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity, Image } from 'react-native';
+
+const width = Dimensions.get('window').width * .55;
 
 const Title = () => {
   return (
@@ -8,7 +10,7 @@ const Title = () => {
       activeOpacity={1} 
       onPress={() => alert('test')}
     >
-      <Text>Stringbet</Text>
+      <Image style={styles.logo} source={require('../assets/stringbet-full-logo.png')} />
     </TouchableOpacity>
   )
 }
@@ -18,7 +20,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  logo: {
+    width: width,
+    height: width * (35 / 100),
+  },
 })
 
 export default Title;
