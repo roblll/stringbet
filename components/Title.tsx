@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Title = () => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={1} 
+      onPress={() => alert('test')}
+    >
       <Text>Stringbet</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
