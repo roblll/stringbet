@@ -159,7 +159,7 @@ const App = () => {
         visible={guideVisible}
         transparent={true}
       >
-        <Guide />
+        <Guide hide={hideGuide}/>
       </Modal>
       <Banner />
       <View style={styles.headerContainer}>

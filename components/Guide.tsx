@@ -1,12 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
-const Guide = () => {
+type Props = {
+  hide: () => void;
+}
+
+const Guide: React.FC<Props> = ({ hide }) => {
   return (
-    <View style={styles.container}>
-      <Text>Guide</Text>
-    </View>
-  )
+    <TouchableOpacity onPress={hide} activeOpacity={1}>
+      <View style={styles.container}>
+        <Text>Guide</Text>
+      </View>
+    </TouchableOpacity>
+    )
 }
 
 const styles = StyleSheet.create({
