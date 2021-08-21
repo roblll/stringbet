@@ -1,5 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Dimensions } from 'react-native';
+import { Button, View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
+
+import { rankings } from '../utils/utils';
+
+console.log(rankings)
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -12,12 +16,17 @@ type Props = {
 
 const Guide: React.FC<Props> = ({ hide }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={hide} activeOpacity={1}>
+    <View style={styles.container}>
       <View style={styles.bg}></View>
       <View style={styles.content}>
-        <Text>Guide</Text>
+        <ScrollView>
+          {rankings.map((item, index) => 
+            <Text key={index}>{`${index + 1}: ${item}`}</Text>
+          )}
+        </ScrollView>
+        <Button title='close' onPress={hide} />
       </View>
-    </TouchableOpacity>
+    </View>
     )
 }
 
@@ -35,8 +44,6 @@ const styles = StyleSheet.create({
     borderColor: '#0d7854',
     borderWidth: 1,
     borderRadius: width / 30,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   bg: {
     flex: 1,
