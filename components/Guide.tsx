@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 
-import { rankings } from '../utils/utils';
+import { rankings, getHandPercentage } from '../utils/utils';
 
 console.log(rankings)
 
@@ -21,7 +21,7 @@ const Guide: React.FC<Props> = ({ hide }) => {
       <View style={styles.content}>
         <ScrollView>
           {rankings.map((item, index) => 
-            <Text key={index}>{`${index + 1}: ${item}`}</Text>
+            <Text key={index}>{`${item} is ${index + 1} (${getHandPercentage(index + 1)}%) `}</Text>
           )}
         </ScrollView>
         <Button title='close' onPress={hide} />
