@@ -19,9 +19,10 @@ const Guide: React.FC<Props> = ({ hide }) => {
     <View style={styles.container}>
       <View style={styles.bg}></View>
       <View style={styles.content}>
-        <ScrollView>
+        <Text style={styles.title}>Guide</Text>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {rankings.map((item, index) => 
-            <Text key={index}>{`${item} is ${index + 1} (${getHandPercentage(index + 1)}%) `}</Text>
+            <Text style={styles.listItem} key={index}>{`${item} is ${index + 1} (${getHandPercentage(index + 1)}%) `}</Text>
           )}
         </ScrollView>
         <Button title='close' onPress={hide} />
@@ -51,6 +52,15 @@ const styles = StyleSheet.create({
     opacity: .25,
     height: height,
     width: width,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 18,
+    margin: 10,
+  },
+  listItem: {
+    textAlign: 'center',
+    margin: 2,
   }
 })
 
