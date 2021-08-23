@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { Button, View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { rankings, getHandPercentage } from '../utils/utils';
 
@@ -25,7 +27,15 @@ const Guide: React.FC<Props> = ({ hide }) => {
             <Text style={styles.listItem} key={index}>{`${item} is ${index + 1} (${getHandPercentage(index + 1)}%) `}</Text>
           )}
         </ScrollView>
-        <Button title='close' onPress={hide} />
+        <View style={styles.close}>
+          <TouchableOpacity onPress={hide}>
+            <MaterialIcons 
+              name="close" 
+              size={22}
+              color="#FC6E51" 
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
     )
@@ -61,6 +71,11 @@ const styles = StyleSheet.create({
   listItem: {
     textAlign: 'center',
     margin: 2,
+  },
+  close: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
   }
 })
 
