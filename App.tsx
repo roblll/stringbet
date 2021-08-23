@@ -49,6 +49,8 @@ interface IAppData {
   correct: number;
   guesses: number;
   streak: number;
+  minRank: number;
+  maxRank: number;
 }
 
 const App = () => {
@@ -71,6 +73,8 @@ const App = () => {
       correct: 0,
       guesses: 0,
       streak: 0,
+      minRank: 1,
+      maxRank: 169,
     })
   })
 
@@ -109,8 +113,18 @@ const App = () => {
   }
 
   const hideResult = () => {
-    const newHand = getRandomHand();
-    setState({ ...state, resultVisible: false, card1: newHand.card1, card2: newHand.card2 })
+    const { minRank, maxRank } = state;
+    let rank = null;
+    while (rank === null) {
+      const { card1 , card2 } = getRandomHand();
+      const hand = convertCardsToHand(card1, card2)
+      rank = getHandRank(hand)
+      if (rank >= minRank && rank <= maxRank) {
+        setState({ ...state, resultVisible: false, card1: card1, card2: card2 })
+      } else {
+        rank = null
+      }
+    }
   }
 
   const showGuide = () => {
