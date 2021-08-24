@@ -11,6 +11,7 @@ import Stats from './components/Stats';
 import Title from './components/Title';
 import Banner from './components/Banner';
 import Guide from './components/Guide';
+import Menu from './components/Menu';
 
 import { 
   getRandomHand,
@@ -40,6 +41,7 @@ interface IAppData {
   handPercentage: number;
   resultVisible: boolean;
   guideVisible: boolean;
+  menuVisible: boolean;
   resultMessage: {
     result: boolean,
     hand: string,
@@ -64,6 +66,7 @@ const App = () => {
       handPercentage,
       resultVisible: false,
       guideVisible: false,
+      menuVisible: false,
       resultMessage: {
         result: false,
         hand: '',
@@ -135,6 +138,10 @@ const App = () => {
     setState({ ...state, guideVisible: false })
   }
 
+  const showMenu = () => {
+    setState({ ...state, menuVisible: true })
+  }
+
   const { 
     card1, 
     card2, 
@@ -142,6 +149,7 @@ const App = () => {
     handPercentage, 
     resultVisible,
     guideVisible,
+    menuVisible,
     resultMessage: {
       result,
       hand,
@@ -175,9 +183,15 @@ const App = () => {
       >
         <Guide hide={hideGuide}/>
       </Modal>
+      <Modal
+        visible={menuVisible}
+        transparent={true}
+      >
+        <Menu />
+      </Modal>
       <Banner />
       <View style={styles.headerContainer}>
-        <Title onPress={showGuide} />
+        <Title onPress={showMenu} />
       </View>
       <Stats correct={correct} guesses={guesses} streak={streak} />
       <View style={styles.cardsContainer}>

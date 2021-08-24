@@ -5,8 +5,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { rankings, getHandPercentage } from '../utils/utils';
 
-console.log(rankings)
-
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const contentWidth = width * .55;
