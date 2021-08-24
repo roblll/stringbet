@@ -166,28 +166,20 @@ const App = () => {
       <StatusBar style='auto' />
       <View style={{height: Constants.statusBarHeight}}></View>
       <Modal
-        visible={resultVisible}
+        visible={resultVisible || guideVisible || menuVisible}
         transparent={true}
       >
-        <Result 
-          result={result}
-          hand={hand}
-          rank={answerHandRank} 
-          percentage={answerHandPercentage} 
-          hide={hideResult}
-        />
-      </Modal>
-      <Modal
-        visible={guideVisible}
-        transparent={true}
-      >
-        <Guide hide={hideGuide}/>
-      </Modal>
-      <Modal
-        visible={menuVisible}
-        transparent={true}
-      >
-        <Menu />
+        {menuVisible && <Menu />}
+        {guideVisible && <Guide hide={hideGuide}/>}
+        {resultVisible &&
+          <Result 
+            result={result}
+            hand={hand}
+            rank={answerHandRank} 
+            percentage={answerHandPercentage} 
+            hide={hideResult}
+          />
+        }
       </Modal>
       <Banner />
       <View style={styles.headerContainer}>
