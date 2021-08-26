@@ -142,6 +142,10 @@ const App = () => {
     setState({ ...state, menuVisible: true })
   }
 
+  const hideMenu = () => {
+    setState({ ...state, menuVisible: false })
+  }
+
   const { 
     card1, 
     card2, 
