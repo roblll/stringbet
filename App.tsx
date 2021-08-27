@@ -173,7 +173,7 @@ const App = () => {
         visible={resultVisible || guideVisible || menuVisible}
         transparent={true}
       >
-        {menuVisible && <Menu />}
+        {menuVisible && <Menu hide={hideMenu} />}
         {guideVisible && <Guide hide={hideGuide}/>}
         {resultVisible &&
           <Result 
