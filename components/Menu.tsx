@@ -8,14 +8,17 @@ const contentHeight = contentWidth * 1056 / 691;
 
 type Props = {
   hide: () => void;
+  showGuide: () => void;
 }
 
-const Menu: React.FC<Props> = ({ hide }) => {
+const Menu: React.FC<Props> = ({ hide, showGuide }) => {
   return (
     <View style={styles.container}>
       <View style={styles.bg} />
       <View style={styles.content}>
         <Text>Menu</Text>
+        <Button title='GUIDE' onPress={showGuide} />
+        <Button title='RANGE' onPress={hide} />
         <Button title='x' onPress={hide} />
       </View>
     </View>

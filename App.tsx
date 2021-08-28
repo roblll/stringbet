@@ -131,7 +131,7 @@ const App = () => {
   }
 
   const showGuide = () => {
-    setState({ ...state, guideVisible: true })
+    setState({ ...state, menuVisible: false, guideVisible: true })
   }
 
   const hideGuide = () => {
@@ -173,7 +173,7 @@ const App = () => {
         visible={resultVisible || guideVisible || menuVisible}
         transparent={true}
       >
-        {menuVisible && <Menu hide={hideMenu} />}
+        {menuVisible && <Menu hide={hideMenu} showGuide={showGuide} />}
         {guideVisible && <Guide hide={hideGuide}/>}
         {resultVisible &&
           <Result 
