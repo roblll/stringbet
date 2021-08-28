@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Button, Dimensions } from 'react-native';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -16,9 +16,12 @@ const Menu: React.FC<Props> = ({ hide, showGuide }) => {
     <View style={styles.container}>
       <View style={styles.bg} />
       <View style={styles.content}>
-        <Button title='GUIDE' onPress={showGuide} />
-        <Button title='RANGE' onPress={hide} />
-        <Button title='x' onPress={hide} />
+        <Text style={styles.title}>Menu</Text>
+        <View style={styles.list}>
+          <Button title='GUIDE' onPress={showGuide} />
+          <Button title='RANGE' onPress={hide} />
+          <Button title='x' onPress={hide} />
+        </View>
       </View>
     </View>
   )
@@ -38,8 +41,6 @@ const styles = StyleSheet.create({
     borderColor: '#0d7854',
     borderWidth: 1,
     borderRadius: width / 30,
-    flex: 1,
-    justifyContent: 'center'
   },
   bg: {
     flex: 1,
@@ -48,6 +49,17 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
+  title: {
+    textAlign: 'center',
+    fontSize: 18,
+    margin: 10,
+  },
+  list: {
+    flex: 1,
+    justifyContent: 'center',
+    borderTopWidth: 1, 
+    borderBottomWidth: 1,
+  }
 })
 
 export default Menu;

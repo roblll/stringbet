@@ -20,7 +20,7 @@ const Guide: React.FC<Props> = ({ hide }) => {
       <View style={styles.bg}></View>
       <View style={styles.content}>
         <Text style={styles.title}>Guide</Text>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.list}>
           {rankings.map((item, index) => 
             <Text style={styles.listItem} key={index}>{`${item} is ${index + 1} (${getHandPercentage(index + 1)}%) `}</Text>
           )}
@@ -66,6 +66,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     margin: 10,
   },
+  list: {
+    borderTopWidth: 1, 
+    borderBottomWidth: 1,
+  }, 
   listItem: {
     textAlign: 'center',
     margin: 2,
