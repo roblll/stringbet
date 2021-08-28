@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Button, Dimensions, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -20,7 +21,15 @@ const Menu: React.FC<Props> = ({ hide, showGuide }) => {
         <View style={styles.list}>
           <Button title='GUIDE' onPress={showGuide} />
           <Button title='RANGE' onPress={hide} />
-          <Button title='x' onPress={hide} />
+        </View>
+        <View style={styles.close}>
+          <TouchableOpacity onPress={hide}>
+            <MaterialIcons 
+              name="close" 
+              size={22}
+              color="#FC6E51" 
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -59,6 +68,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopWidth: 1, 
     borderBottomWidth: 1,
+  },
+  close: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
   }
 })
 
