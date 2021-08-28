@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Dimensions } from 'react-native';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+const contentWidth = width * .55;
+const contentHeight = contentWidth * 1056 / 691;
 
 type Props = {
   hide: () => void;
@@ -8,8 +13,11 @@ type Props = {
 const Menu: React.FC<Props> = ({ hide }) => {
   return (
     <View style={styles.container}>
-      <Text>Menu</Text>
-      <Button title='x' onPress={hide} />
+      <View style={styles.bg} />
+      <View style={styles.content}>
+        <Text>Menu</Text>
+        <Button title='x' onPress={hide} />
+      </View>
     </View>
   )
 }
@@ -19,7 +27,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  content: {
+    position: 'absolute',
+    height: contentHeight,
+    width: contentWidth,
+    backgroundColor: '#fff',
+    borderColor: '#0d7854',
+    borderWidth: 1,
+    borderRadius: width / 30,
+  },
+  bg: {
+    flex: 1,
+    backgroundColor: '#000',
+    opacity: .25,
+    height: height,
+    width: width,
+  },
 })
 
 export default Menu;
