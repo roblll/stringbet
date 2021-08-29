@@ -192,7 +192,7 @@ const App = () => {
           showRange={showRange} 
           />}
         {guideVisible && <Guide hide={hideGuide}/>}
-        {rangeVisible && <Range />}
+        {rangeVisible && <Range hide={hideRange}/>}
         {resultVisible &&
           <Result 
             result={result}
