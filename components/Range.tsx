@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, Dimensions, StyleSheet } from 'react-native';
 import ScrollPicker, { dataType } from '../components/ScrollPicker';
 
@@ -8,6 +8,8 @@ const contentWidth = width * .55;
 const contentHeight = contentWidth * 1056 / 691;
 
 type Props = {
+  minRank: number,
+  maxRank: number,
   hide: () => void;
   setRange: (minRank: number, maxRank: number) => void;
 }
@@ -22,7 +24,24 @@ for (let i = 1; i <= 169; i++) {
   maxData.push({value: i, label: `${i}`})
 }
 
-const Range: React.FC<Props> = ({ hide, setRange }) => {
+interface IAppData {
+  curMinRank: number;
+  curMaxRank: number;
+}
+
+const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
+  const [state, setState] = useState<IAppData>(() => {
+    return({
+      curMinRank: minRank - 1,
+      curMaxRank: maxRank - 1,
+    })
+  })
+
+  const { 
+    curMinRank,
+    curMaxRank,
+  } = state;
+
   return (
     <View style={styles.container}>
       <View style={styles.bg} />
@@ -30,7 +49,7 @@ const Range: React.FC<Props> = ({ hide, setRange }) => {
         <Text style={styles.title}>Range</Text>
         <View style={styles.pickers}>
           <ScrollPicker 
-            initialSelectedItem={0}
+            initialSelectedItem={curMinRank}
             data={minData} 
             setPick={() => {}} 
             transparentItemRows={1}
@@ -38,7 +57,7 @@ const Range: React.FC<Props> = ({ hide, setRange }) => {
             width={100}
           />
           <ScrollPicker 
-            initialSelectedItem={168}
+            initialSelectedItem={curMaxRank}
             data={maxData} 
             setPick={() => {}} 
             transparentItemRows={1}

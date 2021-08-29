@@ -179,6 +179,8 @@ const App = () => {
     correct,
     guesses,
     streak,
+    minRank,
+    maxRank,
   } = state;
 
   return (
@@ -196,7 +198,7 @@ const App = () => {
           showRange={showRange} 
           />}
         {guideVisible && <Guide hide={hideGuide} />}
-        {rangeVisible && <Range hide={hideRange} setRange={setRange} />}
+        {rangeVisible && <Range hide={hideRange} setRange={setRange} minRank={minRank} maxRank={maxRank} />}
         {resultVisible &&
           <Result 
             result={result}
