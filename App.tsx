@@ -157,6 +157,10 @@ const App = () => {
     setState({ ...state, rangeVisible: false })
   }
 
+  const setRange = (minRank: number, maxRank: number) => {
+    setState({ ...state, minRank: minRank, maxRank: maxRank})
+  }
+
   const { 
     card1, 
     card2, 
@@ -191,8 +195,8 @@ const App = () => {
           showGuide={showGuide} 
           showRange={showRange} 
           />}
-        {guideVisible && <Guide hide={hideGuide}/>}
-        {rangeVisible && <Range hide={hideRange}/>}
+        {guideVisible && <Guide hide={hideGuide} />}
+        {rangeVisible && <Range hide={hideRange} setRange={setRange} />}
         {resultVisible &&
           <Result 
             result={result}

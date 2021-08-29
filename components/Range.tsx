@@ -9,6 +9,7 @@ const contentHeight = contentWidth * 1056 / 691;
 
 type Props = {
   hide: () => void;
+  setRange: (minRank: number, maxRank: number) => void;
 }
 
 let minData: dataType[] = []
@@ -21,7 +22,7 @@ for (let i = 1; i <= 169; i++) {
   maxData.push({value: i, label: `${i}`})
 }
 
-const Range: React.FC<Props> = ({ hide }) => {
+const Range: React.FC<Props> = ({ hide, setRange }) => {
   return (
     <View style={styles.container}>
       <View style={styles.bg} />
