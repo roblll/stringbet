@@ -10,9 +10,10 @@ const contentHeight = contentWidth * 1056 / 691;
 type Props = {
   hide: () => void;
   showGuide: () => void;
+  showRange: () => void;
 }
 
-const Menu: React.FC<Props> = ({ hide, showGuide }) => {
+const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
   return (
     <View style={styles.container}>
       <View style={styles.bg} />
@@ -20,7 +21,7 @@ const Menu: React.FC<Props> = ({ hide, showGuide }) => {
         <Text style={styles.title}>Menu</Text>
         <View style={styles.list}>
           <Button title='GUIDE' onPress={showGuide} />
-          <Button title='RANGE' onPress={hide} />
+          <Button title='RANGE' onPress={showRange} />
         </View>
         <View style={styles.close}>
           <TouchableOpacity onPress={hide}>

@@ -150,7 +150,7 @@ const App = () => {
   }
 
   const showRange = () => {
-    setState({ ...state, rangeVisible: true })
+    setState({ ...state, rangeVisible: true, menuVisible: false })
   }
 
   const hideRange = () => {
@@ -182,10 +182,15 @@ const App = () => {
       <StatusBar style='auto' />
       <View style={{height: Constants.statusBarHeight}}></View>
       <Modal
-        visible={resultVisible || guideVisible || menuVisible}
+        visible={resultVisible || guideVisible || menuVisible || rangeVisible}
         transparent={true}
       >
-        {menuVisible && <Menu hide={hideMenu} showGuide={showGuide} />}
+        {menuVisible && 
+         <Menu 
+          hide={hideMenu} 
+          showGuide={showGuide} 
+          showRange={showRange} 
+          />}
         {guideVisible && <Guide hide={hideGuide}/>}
         {rangeVisible && <Range />}
         {resultVisible &&
