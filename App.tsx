@@ -158,7 +158,7 @@ const App = () => {
   }
 
   const setRange = (minRank: number, maxRank: number) => {
-    setState({ ...state, minRank: minRank, maxRank: maxRank})
+    setState({ ...state, minRank: minRank, maxRank: maxRank, rangeVisible: false})
   }
 
   const { 

@@ -50,6 +50,10 @@ const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
     setState({ ...state, curMaxRank: rank })
   }
 
+  const submit = () => {
+    setRange(curMinRank, curMaxRank)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.bg} />
@@ -67,7 +71,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
           <ScrollPicker 
             initialSelectedItem={curMaxRank}
             data={maxData} 
-            setPick={() => {}} 
+            setPick={setMaxRank} 
             transparentItemRows={1}
             height={100}
             width={100}
@@ -75,7 +79,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
         </View>
         <View style={styles.buttons}>
           <Button title='✗' onPress={hide} />
-          <Button title='✓' onPress={hide} />
+          <Button title='✓' onPress={submit} />
         </View>
       </View>
     </View>
