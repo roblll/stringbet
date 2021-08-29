@@ -5,7 +5,7 @@ import ScrollPicker, { dataType } from '../components/ScrollPicker';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const contentWidth = width * .55;
-const contentHeight = contentWidth * 691 / 1056;
+const contentHeight = contentWidth * 1056 / 691;
 
 type Props = {
   hide: () => void;
@@ -26,8 +26,8 @@ const Range: React.FC<Props> = ({ hide }) => {
     <View style={styles.container}>
       <View style={styles.bg} />
       <View style={styles.content}>
-        <Text>Range</Text>
-        <View style={{flex: 1, flexDirection: 'row'}}>
+        <Text style={styles.title}>Range</Text>
+        <View style={styles.pickers}>
           <ScrollPicker 
             initialSelectedItem={0}
             data={minData} 
@@ -45,8 +45,10 @@ const Range: React.FC<Props> = ({ hide }) => {
             width={100}
           />
         </View>
-        <Button title='SELECT' onPress={hide} />
-        <Button title='X' onPress={hide} />
+        <View style={styles.buttons}>
+          <Button title='✗' onPress={hide} />
+          <Button title='✓' onPress={hide} />
+        </View>
       </View>
     </View>
   )
@@ -81,6 +83,24 @@ const styles = StyleSheet.create({
     opacity: .25,
     height: height,
     width: width,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 18,
+    margin: 10,
+  },
+  pickers: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  buttons: {
+    width: contentWidth,
+    justifyContent: 'space-around',
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    margin: 10,
   }
 })
 
