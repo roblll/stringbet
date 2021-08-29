@@ -45,6 +45,7 @@ const Range: React.FC<Props> = ({ hide }) => {
             width={100}
           />
         </View>
+        <Button title='SELECT' onPress={hide} />
         <Button title='X' onPress={hide} />
       </View>
     </View>
