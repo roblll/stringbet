@@ -148,6 +148,14 @@ const App = () => {
     setState({ ...state, menuVisible: false })
   }
 
+  const showRange = () => {
+    setState({ ...state, rangeVisible: true })
+  }
+
+  const hideRange = () => {
+    setState({ ...state, rangeVisible: false })
+  }
+
   const { 
     card1, 
     card2, 
