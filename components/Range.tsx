@@ -29,6 +29,7 @@ const Range: React.FC<Props> = ({ hide }) => {
         <Text>Range</Text>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <ScrollPicker 
+            initialSelectedItem={0}
             data={minData} 
             setPick={() => {}} 
             transparentItemRows={1}
@@ -36,6 +37,7 @@ const Range: React.FC<Props> = ({ hide }) => {
             width={100}
           />
           <ScrollPicker 
+            initialSelectedItem={168}
             data={maxData} 
             setPick={() => {}} 
             transparentItemRows={1}
