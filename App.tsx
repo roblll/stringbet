@@ -12,6 +12,7 @@ import Title from './components/Title';
 import Banner from './components/Banner';
 import Guide from './components/Guide';
 import Menu from './components/Menu';
+import Range from './components/Range';
 
 import { 
   getRandomHand,
@@ -164,6 +165,7 @@ const App = () => {
     resultVisible,
     guideVisible,
     menuVisible,
+    rangeVisible,
     resultMessage: {
       result,
       hand,
@@ -185,6 +187,7 @@ const App = () => {
       >
         {menuVisible && <Menu hide={hideMenu} showGuide={showGuide} />}
         {guideVisible && <Guide hide={hideGuide}/>}
+        {rangeVisible && <Range />}
         {resultVisible &&
           <Result 
             result={result}
