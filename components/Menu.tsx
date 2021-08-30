@@ -18,18 +18,14 @@ const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
     <View style={styles.container}>
       <View style={styles.bg} />
       <View style={styles.content}>
-        <Text style={styles.title}>Menu</Text>
+        <Text style={styles.title}>MENU</Text>
         <View style={styles.list}>
           <Button title='GUIDE' onPress={showGuide} />
           <Button title='RANGE' onPress={showRange} />
         </View>
         <View style={styles.close}>
           <TouchableOpacity onPress={hide}>
-            <MaterialIcons 
-              name="close" 
-              size={22}
-              color="#FC6E51" 
-            />
+            <Text style={styles.closeButton}>OK</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -67,13 +63,14 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     justifyContent: 'center',
-    borderTopWidth: 1, 
-    borderBottomWidth: 1,
   },
   close: {
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
+  },
+  closeButton: {
+    fontSize: 18,
   }
 })
 
