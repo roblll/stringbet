@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
+import MenuButton from './MenuButton';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -30,6 +31,7 @@ const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
             <Button title='GUIDE' onPress={showGuide} />
             <Button title='RANGE' onPress={showRange} />
             <Button title='EXIT' onPress={hide} />
+            <MenuButton />
           </View>
           <Text style={styles.title}></Text>
         </View>
@@ -69,6 +71,7 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
 })
 
