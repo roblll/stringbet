@@ -22,12 +22,9 @@ const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
         <View style={styles.list}>
           <Button title='GUIDE' onPress={showGuide} />
           <Button title='RANGE' onPress={showRange} />
+          <Button title='EXIT' onPress={hide} />
         </View>
-        <View style={styles.close}>
-          <TouchableOpacity onPress={hide}>
-            <Text style={styles.closeButton}>OK</Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.title}></Text>
       </View>
     </View>
   )
@@ -64,14 +61,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  close: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 10,
-  },
-  closeButton: {
-    fontSize: 18,
-  }
 })
 
 export default Menu;
