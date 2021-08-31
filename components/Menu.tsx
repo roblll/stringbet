@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, Dimensions, TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -14,20 +14,28 @@ type Props = {
 }
 
 const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.bg} />
-      <View style={styles.content}>
-        <Text style={styles.title}>MENU</Text>
-        <View style={styles.list}>
-          <Button title='GUIDE' onPress={showGuide} />
-          <Button title='RANGE' onPress={showRange} />
-          <Button title='EXIT' onPress={hide} />
+  let [fontsLoaded] = useFonts({
+    'CardC': require('../assets/fonts/CARDC___.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return <View></View>
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.bg} />
+        <View style={styles.content}>
+          <Text style={styles.title}>MENU</Text>
+          <View style={styles.list}>
+            <Button title='GUIDE' onPress={showGuide} />
+            <Button title='RANGE' onPress={showRange} />
+            <Button title='EXIT' onPress={hide} />
+          </View>
+          <Text style={styles.title}></Text>
         </View>
-        <Text style={styles.title}></Text>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -56,6 +64,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     margin: 10,
+    fontFamily: 'CardC',
   },
   list: {
     flex: 1,
