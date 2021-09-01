@@ -31,7 +31,7 @@ const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
             <Button title='GUIDE' onPress={showGuide} />
             <Button title='RANGE' onPress={showRange} />
             <Button title='EXIT' onPress={hide} />
-            <MenuButton />
+            <MenuButton onPress={ () => {} } />
           </View>
           <Text style={styles.title}></Text>
         </View>
