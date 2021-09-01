@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   listItem: {
     textAlign: 'center',
     margin: 2,
+    fontFamily: 'CardC',
   },
   close: {
     justifyContent: 'center',
