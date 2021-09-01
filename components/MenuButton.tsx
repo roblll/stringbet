@@ -3,10 +3,11 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useFonts } from 'expo-font';
 
 type Props = {
-  onPress: () => void;
+  title: string,
+  onPress: () => void,
 }
 
-const MenuButton: React.FC<Props> = ({ onPress }) => {
+const MenuButton: React.FC<Props> = ({ title, onPress }) => {
   let [fontsLoaded] = useFonts({
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
@@ -16,7 +17,7 @@ const MenuButton: React.FC<Props> = ({ onPress }) => {
   } else {
     return (
       <TouchableOpacity onPress={ onPress }>
-        <Text style={styles.text}>BUTTON</Text>
+        <Text style={styles.text}>{title}</Text>
       </TouchableOpacity>
     )
   }
