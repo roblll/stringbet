@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 
-import { MaterialIcons } from '@expo/vector-icons';
+import MenuButton from './MenuButton';
 
 import { rankings, getHandPercentage } from '../utils/utils';
 
@@ -20,19 +20,13 @@ const Guide: React.FC<Props> = ({ hide }) => {
       <View style={styles.bg}></View>
       <View style={styles.content}>
         <Text style={styles.title}>Guide</Text>
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.list}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {rankings.map((item, index) => 
             <Text style={styles.listItem} key={index}>{`${item} is ${index + 1} (${getHandPercentage(index + 1)}%) `}</Text>
           )}
         </ScrollView>
         <View style={styles.close}>
-          <TouchableOpacity onPress={hide}>
-            <MaterialIcons 
-              name="close" 
-              size={22}
-              color="#FC6E51" 
-            />
-          </TouchableOpacity>
+          <MenuButton title="EXIT" onPress={hide} />
         </View>
       </View>
     </View>
@@ -66,10 +60,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     margin: 10,
   },
-  list: {
-    borderTopWidth: 1, 
-    borderBottomWidth: 1,
-  }, 
   listItem: {
     textAlign: 'center',
     margin: 2,
