@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useFonts } from 'expo-font';
 
 type Props = {
   streak: number;
@@ -8,11 +9,19 @@ type Props = {
 }
 
 const Stats: React.FC<Props> = ({ streak, correct, guesses }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.content}>{`${correct} - ${guesses} (${streak})`}</Text>
-    </View>
-  );
+  let [fontsLoaded] = useFonts({
+    'CardC': require('../assets/fonts/CARDC___.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return <View></View>
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.content}>{`${correct} - ${guesses} (${streak})`}</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -20,6 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   content: {
+    fontFamily: 'CardC',
     color: '#093b2c',
     fontWeight: '500',
   }
