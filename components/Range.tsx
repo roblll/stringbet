@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Dimensions, StyleSheet } from 'react-native';
+import { View, Text, Dimensions, StyleSheet } from 'react-native';
 import ScrollPicker, { dataType } from '../components/ScrollPicker';
 
 import MenuButton from './MenuButton';
@@ -12,7 +12,6 @@ const contentHeight = contentWidth * 1056 / 691;
 type Props = {
   minRank: number,
   maxRank: number,
-  hide: () => void;
   setRange: (minRank: number, maxRank: number) => void;
 }
 
@@ -31,7 +30,7 @@ interface IAppData {
   curMaxRank: number;
 }
 
-const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
+const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
   const [state, setState] = useState<IAppData>(() => {
     return({
       curMinRank: minRank - 1,
@@ -79,9 +78,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
             width={100}
           />
         </View>
-        <View style={styles.buttons}>
-          <MenuButton title='EXIT' onPress={submit} />
-        </View>
+        <MenuButton title='EXIT' onPress={submit} />
       </View>
     </View>
   )
@@ -128,13 +125,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-  buttons: {
-    width: contentWidth,
-    justifyContent: 'space-around',
-    alignItems: 'stretch',
-    flexDirection: 'row',
-    margin: 10,
-  }
 })
 
 export default Range;
