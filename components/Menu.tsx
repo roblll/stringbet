@@ -30,9 +30,9 @@ const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
           <View style={styles.list}>
             <MenuButton title='GUIDE' onPress={showGuide} />
             <MenuButton title='RANGE' onPress={showRange} />
-            <MenuButton title='EXIT' onPress={hide} />
+            <MenuButton title='RESET' onPress={hide} />
           </View>
-          <Text style={styles.title}></Text>
+          <MenuButton title='EXIT' onPress={hide} />
         </View>
       </View>
     )
