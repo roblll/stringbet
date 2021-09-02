@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
 import ScrollPicker, { dataType } from '../components/ScrollPicker';
+import { useFonts } from 'expo-font';
 
 import MenuButton from './MenuButton';
 
@@ -31,6 +32,10 @@ interface IAppData {
 }
 
 const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
+  let [fontsLoaded] = useFonts({
+    'CardC': require('../assets/fonts/CARDC___.otf'),
+  });
+
   const [state, setState] = useState<IAppData>(() => {
     return({
       curMinRank: minRank - 1,
@@ -55,33 +60,37 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
     setRange(curMinRank, curMaxRank)
   }
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.bg} />
-      <View style={styles.content}>
-        <Text style={styles.title}>Range</Text>
-        <View style={styles.pickers}>
-          <ScrollPicker 
-            initialSelectedItem={curMinRank}
-            data={minData} 
-            setPick={setMinRank} 
-            transparentItemRows={1}
-            height={100}
-            width={100}
-          />
-          <ScrollPicker 
-            initialSelectedItem={curMaxRank}
-            data={maxData} 
-            setPick={setMaxRank} 
-            transparentItemRows={1}
-            height={100}
-            width={100}
-          />
+  if (!fontsLoaded) {
+    return <View style={styles.container}><View style={styles.bg} /></View>
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.bg} />
+        <View style={styles.content}>
+          <Text style={styles.title}>Range</Text>
+          <View style={styles.pickers}>
+            <ScrollPicker 
+              initialSelectedItem={curMinRank}
+              data={minData} 
+              setPick={setMinRank} 
+              transparentItemRows={1}
+              height={100}
+              width={100}
+            />
+            <ScrollPicker 
+              initialSelectedItem={curMaxRank}
+              data={maxData} 
+              setPick={setMaxRank} 
+              transparentItemRows={1}
+              height={100}
+              width={100}
+            />
+          </View>
+          <MenuButton title='EXIT' onPress={submit} />
         </View>
-        <MenuButton title='EXIT' onPress={submit} />
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -118,6 +127,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     margin: 10,
+    fontFamily: 'CardC',
   },
   pickers: {
     flex: 1,
