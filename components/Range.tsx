@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, Button, Dimensions, StyleSheet } from 'react-native';
 import ScrollPicker, { dataType } from '../components/ScrollPicker';
 
+import MenuButton from './MenuButton';
+
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const contentWidth = width * .55;
@@ -78,8 +80,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, hide, setRange }) => {
           />
         </View>
         <View style={styles.buttons}>
-          <Button title='✗' onPress={hide} />
-          <Button title='✓' onPress={submit} />
+          <MenuButton title='EXIT' onPress={submit} />
         </View>
       </View>
     </View>
