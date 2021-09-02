@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, Dimensions, StyleSheet } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, Dimensions, StyleSheet, Animated } from 'react-native';
 import ScrollPicker, { dataType } from '../components/ScrollPicker';
 import { useFonts } from 'expo-font';
 
@@ -32,6 +32,8 @@ interface IAppData {
 }
 
 const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current
+
   let [fontsLoaded] = useFonts({
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
@@ -42,6 +44,17 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
       curMaxRank: maxRank - 1,
     })
   })
+
+  useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 250,
+        useNativeDriver: true 
+      }
+    ).start();
+  }, [fadeAnim])
 
   const { 
     curMinRank,
@@ -64,7 +77,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
     return <View style={styles.container}><View style={styles.bg} /></View>
   } else {
     return (
-      <View style={styles.container}>
+      <Animated.View style={[styles.container, {opacity: fadeAnim}]}>
         <View style={styles.bg} />
         <View style={styles.content}>
           <Text style={styles.title}>Range</Text>
@@ -88,7 +101,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
           </View>
           <MenuButton title='EXIT' onPress={submit} />
         </View>
-      </View>
+      </Animated.View>
     )
   }
 }
