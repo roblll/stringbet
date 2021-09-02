@@ -12,9 +12,10 @@ type Props = {
   hide: () => void;
   showGuide: () => void;
   showRange: () => void;
+  resetStats: () => void;
 }
 
-const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
+const Menu: React.FC<Props> = ({ hide, showGuide, showRange, resetStats }) => {
   let [fontsLoaded] = useFonts({
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
@@ -30,7 +31,7 @@ const Menu: React.FC<Props> = ({ hide, showGuide, showRange }) => {
           <View style={styles.list}>
             <MenuButton title='GUIDE' onPress={showGuide} />
             <MenuButton title='RANGE' onPress={showRange} />
-            <MenuButton title='RESET' onPress={hide} />
+            <MenuButton title='RESET' onPress={resetStats} />
           </View>
           <MenuButton title='EXIT' onPress={hide} />
         </View>

@@ -153,8 +153,14 @@ const App = () => {
     setState({ ...state, rangeVisible: true, menuVisible: false })
   }
 
-  const hideRange = () => {
-    setState({ ...state, rangeVisible: false })
+  const resetStats = () => {
+    setState({ 
+      ...state, 
+      menuVisible: false, 
+      correct: 0,
+      guesses: 0,
+      streak: 0, 
+    })
   }
 
   const setRange = (minRank: number, maxRank: number) => {
@@ -196,6 +202,7 @@ const App = () => {
           hide={hideMenu} 
           showGuide={showGuide} 
           showRange={showRange} 
+          resetStats={resetStats}
           />}
         {guideVisible && <Guide hide={hideGuide} />}
         {rangeVisible && <Range setRange={setRange} minRank={minRank} maxRank={maxRank} />}
