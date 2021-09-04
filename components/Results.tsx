@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -16,6 +17,10 @@ type Props = {
 }
 
 const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
+  let [fontsLoaded] = useFonts({
+    'CardC': require('../assets/fonts/CARDC___.otf'),
+  });
+
   const icon = result ? 
                <MaterialIcons 
                 name="check" 
@@ -60,8 +65,7 @@ const styles = StyleSheet.create({
   text: {
     margin: 10,
     textAlign: 'center',
-    fontSize: contentHeight / 9,
-    fontWeight: '400',
+    fontFamily: 'CardC',
   },
   bg: {
     flex: 1,
