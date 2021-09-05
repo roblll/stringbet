@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const contentWidth = width * .55;
-const contentHeight = contentWidth * 691 / 1056;
+const contentHeight = contentWidth * 1056 / 691;
 
 type Props = {
   result: boolean;
