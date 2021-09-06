@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 
 const width = Dimensions.get('window').width;
@@ -21,22 +20,11 @@ const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
 
-  const icon = result ? 
-               <MaterialIcons 
-                name="check" 
-                size={contentHeight / 3} 
-                color="#23A484" 
-               /> : 
-               <MaterialIcons 
-                name="close" 
-                size={contentHeight / 3}
-                color="#FC6E51" 
-               />
   return (
     <TouchableOpacity style={styles.container} onPress={hide}>
       <View style={styles.bg}></View>
       <View style={styles.content}>
-        {icon}
+        {result ? <Text style={styles.text}>Correct!</Text> : <Text style={styles.text}>Incorrect!</Text>}
         <Text style={styles.text}>
           {`${hand} is ${rank} (${percentage}%)`}
         </Text>
