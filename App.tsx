@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Dimensions, Modal } from 'react-native';
 import Constants from "expo-constants";
 import * as Updates from "expo-updates";
@@ -83,6 +83,20 @@ const App = () => {
       minRank: 1,
       maxRank: 169,
     })
+  })
+
+  useEffect(() => {
+    const checkForUpdates = async () => {
+      if (!__DEV__) {
+        try {
+          const { isAvailable } = await Updates.checkForUpdateAsync();
+          if (isAvailable) {
+            alert("Update available")
+          }
+        } catch (e) {}
+      }
+    }
+    checkForUpdates();
   })
 
   const setHandRank = (handRank: number) => {
