@@ -231,7 +231,7 @@ const App = () => {
           />
         }
       </Modal>
-      {/* <Banner /> */}
+      <Banner />
       <View style={styles.headerContainer}>
         <Title onPress={showMenu} />
       </View>
