@@ -14,6 +14,7 @@ import Banner from './components/Banner';
 import Guide from './components/Guide';
 import Menu from './components/Menu';
 import Range from './components/Range';
+import Restart from './components/Restart';
 
 import { 
   getRandomHand,
@@ -93,7 +94,7 @@ const App = () => {
         try {
           const { isAvailable } = await Updates.checkForUpdateAsync();
           if (isAvailable) {
-            alert("Update available")
+            setState({ ...state, restartVisible: true })
           }
         } catch (e) {}
       }
@@ -193,6 +194,7 @@ const App = () => {
     guideVisible,
     menuVisible,
     rangeVisible,
+    restartVisible,
     resultMessage: {
       result,
       hand,
@@ -211,7 +213,7 @@ const App = () => {
       <StatusBar style='auto' />
       <View style={{height: Constants.statusBarHeight}}></View>
       <Modal
-        visible={resultVisible || guideVisible || menuVisible || rangeVisible}
+        visible={resultVisible || guideVisible || menuVisible || rangeVisible || restartVisible}
         transparent={true}
       >
         {menuVisible && 
@@ -232,6 +234,7 @@ const App = () => {
             hide={hideResult}
           />
         }
+        {restartVisible && <Restart />}
       </Modal>
       <Banner />
       <View style={styles.headerContainer}>
