@@ -44,6 +44,7 @@ interface IAppData {
   resultVisible: boolean;
   guideVisible: boolean;
   menuVisible: boolean;
+  restartVisible: boolean;
   rangeVisible: boolean;
   resultMessage: {
     result: boolean,
@@ -71,6 +72,7 @@ const App = () => {
       guideVisible: false,
       menuVisible: false,
       rangeVisible: false,
+      restartVisible: false,
       resultMessage: {
         result: false,
         hand: '',
