@@ -92,9 +92,7 @@ const App = () => {
     if (!__DEV__) {
       try {
         const { isAvailable } = await Updates.checkForUpdateAsync();
-        if (isAvailable) {
-          setState({ ...state, restartVisible: true })
-        }
+        return isAvailable;
       } catch (e) {}
     }
   }
@@ -156,9 +154,12 @@ const App = () => {
     setState({ ...state, guideVisible: false })
   }
 
-  const showMenu = () => {
-    checkForUpdates()
-    setState({ ...state, menuVisible: true })
+  const showMenu = async () => {
+    if (await checkForUpdates()) {
+      setState({ ...state, restartVisible: true })
+    } else {
+      setState({ ...state, menuVisible: true })
+    }
   }
 
   const hideMenu = () => {
