@@ -19,7 +19,7 @@ const Restart = () => {
       <View style={styles.container}>
         <View style={styles.bg} />
         <View style={styles.content}>
-          <Text style={styles.text}>UPDATES AVAILABLE. APP WILL RESTART IN</Text>
+          <Text style={styles.text}>AN UPDATE IS AVAILABLE. THE APP WILL RESTART.</Text>
         </View>
       </View>
     )
