@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { useFonts } from 'expo-font';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -7,14 +8,22 @@ const contentWidth = width * .55;
 const contentHeight = contentWidth * 1056 / 691;
 
 const Restart = () => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.bg} />
-      <View style={styles.content}>
-        <Text style={styles.title}>RESTART</Text>
+  let [fontsLoaded] = useFonts({
+    'CardC': require('../assets/fonts/CARDC___.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return<View></View>
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.bg} />
+        <View style={styles.content}>
+          <Text style={styles.title}>RESTART</Text>
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 const styles = StyleSheet.create({
