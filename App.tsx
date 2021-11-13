@@ -88,19 +88,16 @@ const App = () => {
     })
   })
 
-  useEffect(() => {
-    const checkForUpdates = async () => {
-      if (!__DEV__) {
-        try {
-          const { isAvailable } = await Updates.checkForUpdateAsync();
-          if (isAvailable) {
-            setState({ ...state, restartVisible: true })
-          }
-        } catch (e) {}
-      }
+  const checkForUpdates = async () => {
+    if (!__DEV__) {
+      try {
+        const { isAvailable } = await Updates.checkForUpdateAsync();
+        if (isAvailable) {
+          setState({ ...state, restartVisible: true })
+        }
+      } catch (e) {}
     }
-    checkForUpdates();
-  })
+  }
 
   const setHandRank = (handRank: number) => {
     setState({ ...state, handRank })
@@ -160,6 +157,7 @@ const App = () => {
   }
 
   const showMenu = () => {
+    checkForUpdates()
     setState({ ...state, menuVisible: true })
   }
 
