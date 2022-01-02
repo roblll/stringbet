@@ -235,7 +235,7 @@ const App = () => {
         }
         {restartVisible && <Restart />}
       </Modal>
-      <Banner />
+      {/* <Banner /> */}
       <View style={styles.headerContainer}>
         <Title onPress={showMenu} />
       </View>
