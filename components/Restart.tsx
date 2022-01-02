@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as Updates from "expo-updates";
+import MenuButton from './MenuButton';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -35,14 +36,26 @@ const Restart = () => {
   if (!fontsLoaded) {
     return<View></View>
   } else {
-    return (
-      <View style={styles.container}>
-        <View style={styles.bg} />
-        <View style={styles.content}>
-          <Text style={styles.text}>AN UPDATE IS AVAILABLE. THE APP WILL RESTART.</Text>
+    if (updateDownloaded) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.bg} />
+          <View style={styles.content}>
+            <Text style={styles.text}>UPDATE DOWNLOADED.</Text>
+            <MenuButton title='RESTART' onPress={restart} />
+          </View>
         </View>
-      </View>
-    )
+      )
+    } else {
+      return (
+        <View style={styles.container}>
+          <View style={styles.bg} />
+          <View style={styles.content}>
+            <Text style={styles.text}>DOWNLOADING UPDATE.</Text>
+          </View>
+        </View>
+      )
+    }
   }
 }
 
