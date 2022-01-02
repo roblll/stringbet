@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { useFonts } from 'expo-font';
+import * as Updates from "expo-updates";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -11,6 +12,12 @@ const Restart = () => {
   let [fontsLoaded] = useFonts({
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
+
+  let restart = async () => {
+    if (!__DEV__) {
+      await Updates.reloadAsync();
+    }
+  };
 
   if (!fontsLoaded) {
     return<View></View>
