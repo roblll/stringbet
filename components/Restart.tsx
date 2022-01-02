@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as Updates from "expo-updates";
@@ -13,9 +13,16 @@ const Restart = () => {
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
 
+  const [updateDownloaded, setUpdateDownloaded] = useState<boolean>(false);
+
+  useEffect(()=>{
+    getUpdate()
+  })
+
   let getUpdate = async () => {
     if (!__DEV__) {
       await Updates.fetchUpdateAsync();
+      setUpdateDownloaded(true)
     }
   };
 
