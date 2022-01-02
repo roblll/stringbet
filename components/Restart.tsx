@@ -13,6 +13,12 @@ const Restart = () => {
     'CardC': require('../assets/fonts/CARDC___.otf'),
   });
 
+  let getUpdate = async () => {
+    if (!__DEV__) {
+      await Updates.fetchUpdateAsync();
+    }
+  };
+
   let restart = async () => {
     if (!__DEV__) {
       await Updates.reloadAsync();
