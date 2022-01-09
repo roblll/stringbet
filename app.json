@@ -2,7 +2,7 @@
   "expo": {
     "name": "Stringbet",
     "slug": "stringbet",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,7 +18,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.rbzla.stringbet"
+      "bundleIdentifier": "com.rbzla.stringbet",
+      "infoPlist": {
+        "UIRequiresFullScreen": true
+      }
     },
     "android": {
       "adaptiveIcon": {
