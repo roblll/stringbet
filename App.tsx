@@ -25,8 +25,11 @@ import {
   getHandPercentage,
 } from "./utils/utils";
 
-const scrollPickerWidth = Dimensions.get('window').width * 6 / 15 * .9;
-const scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
+let scrollPickerWidth = Dimensions.get('window').width * 6 / 15;
+let scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
+if (Dimensions.get('window').width > 500) {
+  scrollPickerWidth = 175;
+}
 
 const rankData: dataType[] = []
 for (let i = 1; i <= 169; i++) {
@@ -288,6 +291,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
+    maxWidth: 400, 
   },
   buttonContainer: {
     flex: 1,
