@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const width = Dimensions.get('window').width * .55;
-// const width = Dimensions.get('window').height * .25;
+const maxWidth = 200;
 
 type Props = {
   onPress: () => void;
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   logo: {
     width: width,
     height: width * (35 / 100),
-    maxWidth: 200,
-    maxHeight: 200 * (35 / 100),
+    maxWidth: maxWidth,
+    maxHeight: maxWidth * (35 / 100),
   },
 })
 
