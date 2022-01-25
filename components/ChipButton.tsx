@@ -1,7 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 
-const width = Dimensions.get('window').width * .25;
+const size = Dimensions.get('window').width * .25;
+const maxSize = 120;
 
 type Props = {
   onPress: () => void;
@@ -22,8 +23,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   chipImage: {
-    width: width,
-    height: width,
+    width: size,
+    height: size,
+    maxWidth: maxSize,
+    maxHeight: maxSize,
   },
 })
 
