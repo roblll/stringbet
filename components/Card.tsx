@@ -5,6 +5,8 @@ import { RankType, SuitType } from '../utils/utils';
 
 const cardWidth = Dimensions.get('window').width * 6 / 15;
 const cardHeight = cardWidth * 1056 / 691;
+const maxCardWidth = 200;
+const maxCardHeight = maxCardWidth * 1056 / 691;
 
 export type Props = {
   rank: RankType,
@@ -17,10 +19,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: cardWidth,
     height: cardHeight,
+    maxWidth: maxCardWidth,
+    maxHeight: maxCardHeight,
   },
   cardStyle: {
     width: cardWidth,
     height: cardHeight,
+    maxWidth: maxCardWidth,
+    maxHeight: maxCardHeight,
   }
 });
 
