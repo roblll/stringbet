@@ -6,6 +6,8 @@ const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const contentWidth = width * .55;
 const contentHeight = contentWidth * 1056 / 691;
+const maxContentWidth = 300;
+const maxContentHeight = maxContentWidth * 1056 / 691;
 
 type Props = {
   result: boolean;
@@ -43,6 +45,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: contentHeight,
     width: contentWidth,
+    maxWidth: maxContentWidth,
+    maxHeight: maxContentHeight,
     backgroundColor: '#fff',
     borderColor: '#0d7854',
     borderWidth: 1,
