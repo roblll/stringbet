@@ -217,6 +217,7 @@ const App = () => {
       <Modal
         visible={resultVisible || guideVisible || menuVisible || rangeVisible || restartVisible}
         transparent={true}
+        animationType='fade'
       >
         {menuVisible && 
          <Menu 
