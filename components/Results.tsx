@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Pressable } from 'react-native';
 import { useFonts } from 'expo-font';
 
 const width = Dimensions.get('window').width;
@@ -23,7 +23,7 @@ const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
   });
 
   return (
-    <TouchableOpacity style={styles.container} onPress={hide}>
+    <Pressable style={styles.container} onPress={hide}>
       <View style={styles.bg}></View>
       <View style={styles.content}>
         {result ? <Text style={styles.text}>Correct!</Text> : <Text style={styles.text}>Incorrect!</Text>}
@@ -31,7 +31,7 @@ const Result: React.FC<Props> = ({ result, hand, rank, percentage, hide }) => {
           {`${hand} is ${rank} (${percentage}%)`}
         </Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 
