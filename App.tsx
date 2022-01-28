@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import * as Updates from "expo-updates";
 
 import Card from './components/Card';
-import ScrollPicker, { dataType } from './components/ScrollPicker';
+// import ScrollPicker, { dataType } from './components/ScrollPicker';
 import Result from './components/Results';
 import ChipButton from './components/ChipButton';
 import Stats from './components/Stats';
@@ -29,6 +29,11 @@ let scrollPickerWidth = Dimensions.get('window').width * 6 / 15;
 let scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
 if (Dimensions.get('window').width > 500) {
   scrollPickerWidth = 175;
+}
+
+type dataType = {
+  value: number;
+  label: string;
 }
 
 const rankData: dataType[] = []
@@ -249,7 +254,7 @@ const App = () => {
         <Card rank={card2.rank} suit={card2.suit} />
       </View>
       <View style={styles.controlsContainer}>
-        <ScrollPicker
+        {/* <ScrollPicker
           initialSelectedItem={handRank}
           data={rankData}
           width={scrollPickerWidth}
@@ -264,7 +269,7 @@ const App = () => {
           height={scrollPickerHeight}
           setPick={setHandPercentage}
           transparentItemRows={1}
-        />
+        /> */}
       </View>
       <View style={styles.buttonContainer}>
         <ChipButton onPress={checkAnswer} />
