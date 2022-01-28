@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Dimensions, Modal } from 'react-native';
+import { StyleSheet, View, Dimensions, Modal, Text } from 'react-native';
 import Constants from "expo-constants";
 import * as Updates from "expo-updates";
+import ScrollPicker from 'react-native-wheel-scrollview-picker';
 
 import Card from './components/Card';
 // import ScrollPicker, { dataType } from './components/ScrollPicker';
@@ -254,6 +255,34 @@ const App = () => {
         <Card rank={card2.rank} suit={card2.suit} />
       </View>
       <View style={styles.controlsContainer}>
+        <ScrollPicker
+          dataSource={['1', '2', '3', '4', '5', '6']}
+          selectedIndex={1}
+          renderItem={(data, index) => {
+            return <Text>{data}</Text>
+          }}
+          onValueChange={(data, selectedIndex) => {
+            //
+          }}
+          wrapperHeight={180}
+          wrapperColor='#FFFFFF'
+          itemHeight={60}
+          highlightColor='#d8d8d8'
+        />
+        <ScrollPicker
+          dataSource={['1', '2', '3', '4', '5', '6']}
+          selectedIndex={1}
+          renderItem={(data, index) => {
+            return <Text>{data}</Text>
+          }}
+          onValueChange={(data, selectedIndex) => {
+            //
+          }}
+          wrapperHeight={180}
+          wrapperColor='#FFFFFF'
+          itemHeight={60}
+          highlightColor='#d8d8d8'
+        />
         {/* <ScrollPicker
           initialSelectedItem={handRank}
           data={rankData}
