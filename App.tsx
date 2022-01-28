@@ -255,34 +255,38 @@ const App = () => {
         <Card rank={card2.rank} suit={card2.suit} />
       </View>
       <View style={styles.controlsContainer}>
-        <ScrollPicker
-          dataSource={['1', '2', '3', '4', '5', '6']}
-          selectedIndex={1}
-          renderItem={(data, index) => {
-            return <Text>{data}</Text>
-          }}
-          onValueChange={(data, selectedIndex) => {
-            //
-          }}
-          wrapperHeight={180}
-          wrapperColor='#FFFFFF'
-          itemHeight={60}
-          highlightColor='#d8d8d8'
-        />
-        <ScrollPicker
-          dataSource={['1', '2', '3', '4', '5', '6']}
-          selectedIndex={1}
-          renderItem={(data, index) => {
-            return <Text>{data}</Text>
-          }}
-          onValueChange={(data, selectedIndex) => {
-            //
-          }}
-          wrapperHeight={180}
-          wrapperColor='#FFFFFF'
-          itemHeight={60}
-          highlightColor='#d8d8d8'
-        />
+        <View style={{width: scrollPickerWidth}}>
+          <ScrollPicker
+            dataSource={['1', '2', '3', '4', '5', '6']}
+            selectedIndex={1}
+            renderItem={(data, index) => {
+              return <Text>{data}</Text>
+            }}
+            onValueChange={(data, selectedIndex) => {
+              //
+            }}
+            wrapperHeight={120}
+            wrapperColor='#23A484'
+            itemHeight={40}
+            highlightColor='#48CFAD'
+          />
+        </View>
+        <View style={{width: scrollPickerWidth}}>
+          <ScrollPicker
+            dataSource={['1', '2', '3', '4', '5', '6']}
+            selectedIndex={1}
+            renderItem={(data, index) => {
+              return <Text>{data}</Text>
+            }}
+            onValueChange={(data, selectedIndex) => {
+              //
+            }}
+            wrapperHeight={120}
+            wrapperColor='#23A484'
+            itemHeight={40}
+            highlightColor='#48CFAD'
+          />
+        </View>
         {/* <ScrollPicker
           initialSelectedItem={handRank}
           data={rankData}
@@ -323,10 +327,11 @@ const styles = StyleSheet.create({
   controlsContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     maxWidth: 400, 
+    paddingVertical: 10,
   },
   buttonContainer: {
     flex: 1,
