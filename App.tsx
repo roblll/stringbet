@@ -16,6 +16,7 @@ import Guide from './components/Guide';
 import Menu from './components/Menu';
 import Range from './components/Range';
 import Restart from './components/Restart';
+import PickerItem from './components/PickerItem';
 
 import { 
   getRandomHand,
@@ -260,7 +261,13 @@ const App = () => {
             dataSource={['1', '2', '3', '4', '5', '6']}
             selectedIndex={1}
             renderItem={(data, index) => {
-              return <Text>{data}</Text>
+              return (
+                <PickerItem 
+                  key={index} 
+                  label={data.toString()} 
+                  style={{ height: 16}} 
+                />
+              )
             }}
             onValueChange={(data, selectedIndex) => {
               //
@@ -276,7 +283,13 @@ const App = () => {
             dataSource={['1', '2', '3', '4', '5', '6']}
             selectedIndex={1}
             renderItem={(data, index) => {
-              return <Text>{data}</Text>
+              return (
+                <PickerItem 
+                  key={index} 
+                  label={data.toString()} 
+                  style={{ height: 16}} 
+                />
+              )
             }}
             onValueChange={(data, selectedIndex) => {
               //
