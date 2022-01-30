@@ -250,7 +250,7 @@ const App = () => {
         <Card rank={card2.rank} suit={card2.suit} />
       </View>
       <View style={styles.controlsContainer}>
-        <View style={{width: scrollPickerWidth, height: scrollPickerHeight}}>
+        <View style={{width: scrollPickerWidth * .8, height: scrollPickerHeight, margin: scrollPickerWidth * .1}}>
           <ScrollPicker
             dataSource={rankData}
             selectedIndex={1}
@@ -270,7 +270,7 @@ const App = () => {
             highlightColor='#48CFAD'
           />
         </View>
-        <View style={{width: scrollPickerWidth, height: scrollPickerHeight}}>
+        <View style={{width: scrollPickerWidth * .8, height: scrollPickerHeight, margin: scrollPickerWidth * .1}}>
           <ScrollPicker
             dataSource={percentageData}
             selectedIndex={1}
