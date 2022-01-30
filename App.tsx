@@ -71,8 +71,8 @@ const App = () => {
     return ({
       card1,
       card2,
-      handRank,
-      handPercentage,
+      handRank: 0,
+      handPercentage: 0,
       resultVisible: false,
       guideVisible: false,
       menuVisible: false,
@@ -253,7 +253,7 @@ const App = () => {
         <View style={{width: scrollPickerWidth * .8, height: scrollPickerHeight, margin: scrollPickerWidth * .1}}>
           <ScrollPicker
             dataSource={rankData}
-            selectedIndex={1}
+            selectedIndex={handRank}
             renderItem={(data, index) => {
               return (
                 <PickerItem 
@@ -273,7 +273,7 @@ const App = () => {
         <View style={{width: scrollPickerWidth * .8, height: scrollPickerHeight, margin: scrollPickerWidth * .1}}>
           <ScrollPicker
             dataSource={percentageData}
-            selectedIndex={1}
+            selectedIndex={handPercentage}
             renderItem={(data, index) => {
               return (
                 <PickerItem 
