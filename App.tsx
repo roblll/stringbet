@@ -256,47 +256,43 @@ const App = () => {
         <Card rank={card2.rank} suit={card2.suit} />
       </View>
       <View style={styles.controlsContainer}>
-        <View style={{width: scrollPickerWidth}}>
+        <View style={{width: scrollPickerWidth, height: scrollPickerHeight}}>
           <ScrollPicker
             dataSource={['1', '2', '3', '4', '5', '6']}
             selectedIndex={1}
             renderItem={(data, index) => {
               return (
                 <PickerItem 
-                  key={index} 
                   label={data.toString()} 
-                  style={{ height: 16}} 
                 />
               )
             }}
             onValueChange={(data, selectedIndex) => {
               //
             }}
-            wrapperHeight={120}
+            wrapperHeight={scrollPickerHeight}
             wrapperColor='#23A484'
-            itemHeight={40}
+            itemHeight={scrollPickerHeight / 3}
             highlightColor='#48CFAD'
           />
         </View>
-        <View style={{width: scrollPickerWidth}}>
+        <View style={{width: scrollPickerWidth, height: scrollPickerHeight}}>
           <ScrollPicker
             dataSource={['1', '2', '3', '4', '5', '6']}
             selectedIndex={1}
             renderItem={(data, index) => {
               return (
                 <PickerItem 
-                  key={index} 
                   label={data.toString()} 
-                  style={{ height: 16}} 
                 />
               )
             }}
             onValueChange={(data, selectedIndex) => {
               //
             }}
-            wrapperHeight={120}
+            wrapperHeight={scrollPickerHeight}
             wrapperColor='#23A484'
-            itemHeight={40}
+            itemHeight={scrollPickerHeight / 3}
             highlightColor='#48CFAD'
           />
         </View>
