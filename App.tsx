@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Dimensions, Modal, Text } from 'react-native';
 import Constants from "expo-constants";
 import * as Updates from "expo-updates";
-import ScrollPicker from 'react-native-wheel-scrollview-picker';
 
 import Card from './components/Card';
-// import ScrollPicker, { dataType } from './components/ScrollPicker';
+import ScrollPicker from './components/ScrollPicker';
 import Result from './components/Results';
 import ChipButton from './components/ChipButton';
 import Stats from './components/Stats';
@@ -291,22 +290,6 @@ const App = () => {
             highlightColor='#48CFAD'
           />
         </View>
-        {/* <ScrollPicker
-          initialSelectedItem={handRank}
-          data={rankData}
-          width={scrollPickerWidth}
-          height={scrollPickerHeight}
-          setPick={setHandRank}
-          transparentItemRows={1}
-        />
-        <ScrollPicker
-          initialSelectedItem={handPercentage}
-          data={percentageData}
-          width={scrollPickerWidth}
-          height={scrollPickerHeight}
-          setPick={setHandPercentage}
-          transparentItemRows={1}
-        /> */}
       </View>
       <View style={styles.buttonContainer}>
         <ChipButton onPress={checkAnswer} />
