@@ -33,18 +33,13 @@ if (Dimensions.get('window').width > 500) {
   scrollPickerWidth = 175;
 }
 
-type dataType = {
-  value: number;
-  label: string;
-}
-
-const rankData: dataType[] = []
+const rankData: string[] = []
 for (let i = 1; i <= 169; i++) {
-  rankData.push({value: i, label: `${i}`})
+  rankData.push(`${i}`)
 }
-const percentageData: dataType[] = []
+const percentageData: string[] = []
 for (let i = 99; i >= 0; i--) {
-  percentageData.push({value: i, label: `${i} %`})
+  percentageData.push(`${i} %`)
 }
 
 interface IAppData {
@@ -258,7 +253,7 @@ const App = () => {
       <View style={styles.controlsContainer}>
         <View style={{width: scrollPickerWidth, height: scrollPickerHeight}}>
           <ScrollPicker
-            dataSource={['1', '2', '3', '4', '5', '6']}
+            dataSource={rankData}
             selectedIndex={1}
             renderItem={(data, index) => {
               return (
@@ -278,7 +273,7 @@ const App = () => {
         </View>
         <View style={{width: scrollPickerWidth, height: scrollPickerHeight}}>
           <ScrollPicker
-            dataSource={['1', '2', '3', '4', '5', '6']}
+            dataSource={percentageData}
             selectedIndex={1}
             renderItem={(data, index) => {
               return (
