@@ -5107,11 +5107,6 @@ react-native-web@0.17.1:
     normalize-css-color "^1.0.2"
     prop-types "^15.6.0"
 
-react-native-wheel-scrollview-picker@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/react-native-wheel-scrollview-picker/-/react-native-wheel-scrollview-picker-1.2.3.tgz#279b50dec33244a746a9ca765eb8526e103c1d72"
-  integrity sha512-A/R4Tv0lvECwF0u5nMCcq7vQML3nMpcWUxe5zmVh2UAWiwPc0CazZ3ZZyyy3VotDPr33pSB8ghOtyk/Gt6OrEA==
-
 react-native@0.64.3:
   version "0.64.3"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.64.3.tgz#40db6385963b4b17325f9cc86dd19132394b03fc"
