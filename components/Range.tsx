@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, Dimensions, StyleSheet, Animated } from 'react-native';
-import ScrollPicker, { dataType } from '../components/ScrollPicker';
+import ScrollPicker from '../components/ScrollPicker';
 import { useFonts } from 'expo-font';
 
 import MenuButton from './MenuButton';
+import PickerItem from './PickerItem';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -18,14 +19,14 @@ type Props = {
   setRange: (minRank: number, maxRank: number) => void;
 }
 
-let minData: dataType[] = []
+let minData: string[] = []
 for (let i = 1; i <= 169; i++) {
-  minData.push({value: i, label: `${i}`})
+  minData.push(`${i}`)
 }
 
-let maxData: dataType[] = []
+let maxData: string[] = []
 for (let i = 1; i <= 169; i++) {
-  maxData.push({value: i, label: `${i}`})
+  maxData.push(`${i}`)
 }
 
 interface IAppData {
@@ -84,7 +85,43 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
         <View style={styles.content}>
           <Text style={styles.title}>Range</Text>
           <View style={styles.pickers}>
-            <ScrollPicker 
+            <ScrollPicker
+              dataSource={minData}
+              selectedIndex={curMinRank}
+              renderItem={(data, index) => {
+                return (
+                  <PickerItem 
+                    label={data.toString()} 
+                  />
+                )
+              }}
+              onValueChange={(data, selectedIndex) => {
+                setMinRank(selectedIndex)
+              }}
+              wrapperHeight={100}
+              wrapperColor='#23A484'
+              itemHeight={100 / 3}
+              highlightColor='#48CFAD'
+            />
+            <ScrollPicker
+              dataSource={minData}
+              selectedIndex={curMaxRank}
+              renderItem={(data, index) => {
+                return (
+                  <PickerItem 
+                    label={data.toString()} 
+                  />
+                )
+              }}
+              onValueChange={(data, selectedIndex) => {
+                setMaxRank(selectedIndex)
+              }}
+              wrapperHeight={100}
+              wrapperColor='#23A484'
+              itemHeight={100 / 3}
+              highlightColor='#48CFAD'
+            />
+            {/* <ScrollPicker 
               initialSelectedItem={curMinRank}
               data={minData} 
               setPick={setMinRank} 
@@ -99,7 +136,7 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
               transparentItemRows={1}
               height={100}
               width={100}
-            />
+            /> */}
           </View>
           <MenuButton title='EXIT' onPress={submit} />
         </View>
