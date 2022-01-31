@@ -262,7 +262,7 @@ const App = () => {
               )
             }}
             onValueChange={(data, selectedIndex) => {
-              //
+              setHandRank(selectedIndex)
             }}
             wrapperHeight={scrollPickerHeight}
             wrapperColor='#23A484'
@@ -282,7 +282,7 @@ const App = () => {
               )
             }}
             onValueChange={(data, selectedIndex) => {
-              //
+              setHandPercentage(selectedIndex)
             }}
             wrapperHeight={scrollPickerHeight}
             wrapperColor='#23A484'
