@@ -12,6 +12,11 @@ const contentWidth = width * .55;
 const contentHeight = contentWidth * 1056 / 691;
 const maxContentWidth = 300;
 const maxContentHeight = maxContentWidth * 1056 / 691;
+let scrollPickerWidth = width * 6 / 15 / 2;
+let scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
+if (Dimensions.get('window').width > 500) {
+  scrollPickerWidth = 175;
+}
 
 type Props = {
   minRank: number,
@@ -85,58 +90,46 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
         <View style={styles.content}>
           <Text style={styles.title}>Range</Text>
           <View style={styles.pickers}>
-            <ScrollPicker
-              dataSource={minData}
-              selectedIndex={curMinRank}
-              renderItem={(data, index) => {
-                return (
-                  <PickerItem 
-                    label={data.toString()} 
-                  />
-                )
-              }}
-              onValueChange={(data, selectedIndex) => {
-                setMinRank(selectedIndex)
-              }}
-              wrapperHeight={100}
-              wrapperColor='#23A484'
-              itemHeight={100 / 3}
-              highlightColor='#48CFAD'
-            />
-            <ScrollPicker
-              dataSource={minData}
-              selectedIndex={curMaxRank}
-              renderItem={(data, index) => {
-                return (
-                  <PickerItem 
-                    label={data.toString()} 
-                  />
-                )
-              }}
-              onValueChange={(data, selectedIndex) => {
-                setMaxRank(selectedIndex)
-              }}
-              wrapperHeight={100}
-              wrapperColor='#23A484'
-              itemHeight={100 / 3}
-              highlightColor='#48CFAD'
-            />
-            {/* <ScrollPicker 
-              initialSelectedItem={curMinRank}
-              data={minData} 
-              setPick={setMinRank} 
-              transparentItemRows={1}
-              height={100}
-              width={100}
-            />
-            <ScrollPicker 
-              initialSelectedItem={curMaxRank}
-              data={maxData} 
-              setPick={setMaxRank} 
-              transparentItemRows={1}
-              height={100}
-              width={100}
-            /> */}
+            <View style={{width: scrollPickerWidth * .8, height: scrollPickerHeight, margin: scrollPickerWidth * .1}}>
+              <ScrollPicker
+                dataSource={minData}
+                selectedIndex={curMinRank}
+                renderItem={(data, index) => {
+                  return (
+                    <PickerItem 
+                      label={data.toString()} 
+                    />
+                  )
+                }}
+                onValueChange={(data, selectedIndex) => {
+                  setMinRank(selectedIndex)
+                }}
+                wrapperHeight={scrollPickerHeight}
+                wrapperColor='#fff'
+                itemHeight={scrollPickerHeight / 3}
+                highlightColor='#48CFAD'
+              />
+            </View>
+            <View style={{width: scrollPickerWidth * .8, height: scrollPickerHeight, margin: scrollPickerWidth * .1}}>
+              <ScrollPicker
+                dataSource={minData}
+                selectedIndex={curMaxRank}
+                renderItem={(data, index) => {
+                  return (
+                    <PickerItem 
+                      label={data.toString()} 
+                    />
+                  )
+                }}
+                onValueChange={(data, selectedIndex) => {
+                  setMaxRank(selectedIndex)
+                }}
+                wrapperHeight={scrollPickerHeight}
+                wrapperColor='#fff'
+                itemHeight={scrollPickerHeight / 3}
+                highlightColor='#48CFAD'
+              />
+            </View>
           </View>
           <MenuButton title='EXIT' onPress={submit} />
         </View>
