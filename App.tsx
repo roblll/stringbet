@@ -32,13 +32,13 @@ if (Dimensions.get('window').width > 500) {
   scrollPickerWidth = 175;
 }
 
-const rankData: string[] = []
+const rankData: number[] = []
 for (let i = 1; i <= 169; i++) {
-  rankData.push(`${i}`)
+  rankData.push(i)
 }
-const percentageData: string[] = []
+const percentageData: number[] = []
 for (let i = 99; i >= 0; i--) {
-  percentageData.push(`${i} %`)
+  percentageData.push(i)
 }
 
 interface IAppData {
@@ -257,7 +257,7 @@ const App = () => {
             renderItem={(data, index) => {
               return (
                 <PickerItem 
-                  label={data.toString()} 
+                  label={`${data}`} 
                 />
               )
             }}
@@ -277,7 +277,7 @@ const App = () => {
             renderItem={(data, index) => {
               return (
                 <PickerItem 
-                  label={data.toString()} 
+                  label={`${data} %`} 
                 />
               )
             }}
