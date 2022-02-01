@@ -114,7 +114,7 @@ const App = () => {
     const hand = convertCardsToHand(card1, card2)
     const answerHandRank = getHandRank(hand)
     const answerHandPercentage = getHandPercentage(answerHandRank)
-    const result = answerHandRank === handRank && answerHandPercentage === handPercentage;
+    const result = answerHandRank === rankData[handRank] && answerHandPercentage === percentageData[handPercentage];
     showResult(result, hand, answerHandRank, answerHandPercentage)
   }
 
