@@ -142,7 +142,7 @@ const App = () => {
       const { card1 , card2 } = getRandomHand();
       const hand = convertCardsToHand(card1, card2)
       rank = getHandRank(hand)
-      if (rank >= minRank && rank <= maxRank) {
+      if (rank >= rankData[minRank] && rank <= rankData[maxRank]) {
         setState({ ...state, resultVisible: false, card1: card1, card2: card2 })
       } else {
         rank = null

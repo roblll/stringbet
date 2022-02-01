@@ -48,8 +48,8 @@ const Range: React.FC<Props> = ({ minRank, maxRank, setRange }) => {
 
   const [state, setState] = useState<IAppData>(() => {
     return({
-      curMinRank: minRank - 1,
-      curMaxRank: maxRank - 1,
+      curMinRank: minRank,
+      curMaxRank: maxRank,
     })
   })
 
