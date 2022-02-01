@@ -12,10 +12,10 @@ const contentWidth = width * .55;
 const contentHeight = contentWidth * 1056 / 691;
 const maxContentWidth = 300;
 const maxContentHeight = maxContentWidth * 1056 / 691;
-let scrollPickerWidth = width * 6 / 15 / 2;
-let scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
-if (Dimensions.get('window').width > 500) {
-  scrollPickerWidth = 175;
+let scrollPickerWidth = contentWidth * 6 / 15;
+const scrollPickerHeight = Dimensions.get('window').height / 6 * .75;
+if (scrollPickerWidth * 2 > 300) {
+  scrollPickerWidth = 300 * 6 / 15;
 }
 
 type Props = {
