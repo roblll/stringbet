@@ -87,8 +87,8 @@ const App = () => {
       correct: 0,
       guesses: 0,
       streak: 0,
-      minRank: 1,
-      maxRank: 169,
+      minRank: 0,
+      maxRank: 168,
     })
   })
 
