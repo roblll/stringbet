@@ -206,8 +206,10 @@ export default function ScrollPicker({
     width: highlightWidth,
     borderTopColor: highlightColor,
     borderBottomColor: highlightColor,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    // borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: 1,
+    // borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: 1,
   };
 
   return (
