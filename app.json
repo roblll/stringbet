@@ -26,7 +26,8 @@
         "backgroundColor": "#23A484"
       },
       "package": "com.rbzla.stringbet",
-      "permissions": []
+      "permissions": [],
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
