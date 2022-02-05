@@ -25,7 +25,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rbzla.stringbet"
+      "package": "com.rbzla.stringbet",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
