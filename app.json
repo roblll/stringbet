@@ -27,7 +27,7 @@
       },
       "package": "com.rbzla.stringbet",
       "permissions": [],
-      "versionCode": 2
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
